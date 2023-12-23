@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="iceBreakers.css">
+   <title>Button Popup Example</title>
+   <style>
+     body {
+       font-family: Arial, sans-serif;
+     }
+ 
+     .button-container {
+       border: 2px solid #ccc;
+       padding: 10px;
+       display: flex;
+       flex-wrap: wrap;
+       gap: 10px;
+       max-width: 400px;
+       margin: 0 auto;
+     }
+ 
+     .popup {
+       display: none;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       padding: 20px;
+       background-color: #fff;
+       border: 2px solid #333;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+       z-index: 999;
+     }
+ 
+     .button {
+       padding: 5px 10px;
+       background-color: #4CAF50;
+       color: #fff;
+       border: none;
+       cursor: pointer;
+     }
+   </style>
+ </head>
+ <body>
+    <button onclick="openWordSearch()">Open Word Search</button>
+
+    <div id="popup-container">
+        <div id="word-search"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+ 
+ <div class="button-container">
+   <!-- Create 20 buttons -->
+   <!-- You can customize the button text and popup content as needed -->
+   <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 3')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 4')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 5')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 6')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 7')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 8')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 9')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+   <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+   
+ </div>
+ 
+ <div class="popup" id="popup">
+   <span onclick="closePopup()" style="cursor: pointer; float: right;">&times;</span>
+   <div id="popupContent"></div>
+ </div>
+ 
+ <script>
+   function openPopup(buttonText, popupContent) {
+     // Set the button text and popup content dynamically
+     document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
+ 
+     // Display the popup
+     document.getElementById('popup').style.display = 'block';
+   }
+ 
+   function closePopup() {
+     // Hide the popup
+     document.getElementById('popup').style.display = 'none';
+   }
+   function openWordSearch() {
+            const letters = [
+                'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
+                'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
+                'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C',
+                'O', 'S', 'S', 'A', 'C', 'E', 'C', 'E',
+                'R', 'N', 'E', 'C', 'E', 'P', 'T', 'P',
+                'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
+                'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
+                'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
+                'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
+                'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
+                'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
+                'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
+            ];
+
+            initializeWordSearch(letters);
+            document.getElementById('popup-container').style.display = 'block';
+        }
+
+        function initializeWordSearch(letters) {
+            const wordSearchContainer = document.getElementById('word-search');
+            wordSearchContainer.innerHTML = '';
+
+            for (let i = 0; i < letters.length; i++) {
+                const letter = document.createElement('div');
+                letter.className = 'letter';
+                letter.textContent = letters[i];
+                wordSearchContainer.appendChild(letter);
+            }
+        }
+
+        function closePopup() {
+            document.getElementById('popup-container').style.display = 'none';
+        }
+ </script>
+ 
+ </body>
+ </html>
+ 
