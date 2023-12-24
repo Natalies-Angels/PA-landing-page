@@ -12,11 +12,14 @@ body {
     z-index: 1;
 }
 
+.logo img {
+    width: 60px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
 nav {
     z-index: 0;
 }
-
-/* Rest of your CSS remains unchanged */
 
 .cta-image {
     max-height: 100%;
@@ -39,6 +42,7 @@ footer {
     padding-top: 50px;
     background-color: black;
     font-size: 16px;
+    padding: 100px;
 }
 
 .btn {
@@ -53,8 +57,8 @@ footer {
 }
 
 .btn:hover {
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: #d48c06;
 }
 
 .who-we-are {
@@ -69,7 +73,7 @@ footer {
 
 .custom2-container {
     background-color: #A7A5A5;
-    padding: 20px;
+    padding: 50px;
     box-sizing: border-box;
 }
 
@@ -83,7 +87,7 @@ footer {
 .cta-paragraph {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     margin-top: 180px;
     margin-right: 30px;
     color: white;
@@ -95,20 +99,30 @@ footer {
     text-align: center;
 }
 
-.left-info {
-    margin-right: 5px;
-}
 
-.right-info {
-    margin-left: 5px;
-}
 
 .rsvp-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
+    margin: 40px;
+    margin-right: 30px;
 }
+
+.left-info {
+    width: 48%;
+    text-align: left;  /* Updated to align text to the left */
+    margin-right: 20px;
+    margin-left: -40px;
+}
+
+.right-info {
+    width: 48%;
+    text-align: center;
+    margin-left: 5px;
+}
+
+
+
 
 .vertical-line {
     border-left: 2px solid #801709;
@@ -119,24 +133,25 @@ footer {
 }
 
 .short-sentence {
-    text-align: center;
+    text-align: left;
 }
 
 .cta-btn {
     margin-top: 10px;
     border: 2px solid #801709;
     background-color: transparent;
-    text-align: center;
+    text-align: cnter;
     margin-bottom: 80px;
     color: white;
     padding: 5px 20px;
     cursor: pointer;
     border-radius: 10px;
+    margin-right: 40px;
 }
 
 .cta-btn:hover {
     background-color: white;
-    color: black;
+    color: #801709;
 }
 
 @media only screen and (max-width: 576px) {
