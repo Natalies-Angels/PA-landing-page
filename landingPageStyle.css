@@ -1,32 +1,29 @@
-/* Add your custom CSS styles here */
-
-body, html {
-    height: 100%;
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-.navbar {
-    text-align: center; /* Center the navigation links */
+.logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: smaller;
-    padding: 10px;
+nav {
+    z-index: 0;
 }
 
-.navbar img {
-    /* Make the logo width 100% of its container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 70%; /* Limit the maximum width of the logo */
-    display: block; /* Center the logo */
-    margin: 0 auto;
-}
+/* Rest of your CSS remains unchanged */
 
 .cta-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    max-height: 100%;
+    width: 65%;
+    object-fit: cover;
+    margin-left: 50px;
+    margin-top: -20px;
 }
 
 hr {
@@ -40,19 +37,24 @@ hr.my-4 {
 footer {
     text-align: left;
     padding-top: 50px;
-    background-color: black;   
+    background-color: black;
     font-size: 16px;
 }
 
 .btn {
-    background-color: black;
-    margin-top: 10px;  
+    background-color: #d48c06;
+    margin-top: 10px;
     text-align: center;
     margin-bottom: 80px;
-    color: white;
+    color: black;
     padding: 5px 20px;
     cursor: pointer;
     border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: grey;
+    color: white;
 }
 
 .who-we-are {
@@ -61,28 +63,68 @@ footer {
     padding-bottom: 20px;
 }
 
+.who-we-are-container {
+    padding-top: 30px;
+}
+
 .custom2-container {
     background-color: #A7A5A5;
-    padding-bottom: 150px;
     padding: 20px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
 }
 
 .nav-and-cta {
     background-color: black;
-    padding-top: 100px;
+    padding-top: 5px;
     padding-bottom: 150px;
-    
-    margin-bottom: -165px; /* Adjust as needed to eliminate space */
+    margin-bottom: -165px;
 }
 
 .cta-paragraph {
-    margin-top: 70px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 180px;
+    margin-right: 30px;
+    color: white;
+}
+
+.left-info,
+.right-info {
+    width: 48%;
+    text-align: center;
+}
+
+.left-info {
+    margin-right: 5px;
+}
+
+.right-info {
+    margin-left: 5px;
+}
+
+.rsvp-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.vertical-line {
+    border-left: 2px solid #801709;
+    height: 40px;
+    flex-grow: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.short-sentence {
+    text-align: center;
 }
 
 .cta-btn {
     margin-top: 10px;
-    border: 2px solid #71B551;
+    border: 2px solid #801709;
     background-color: transparent;
     text-align: center;
     margin-bottom: 80px;
@@ -99,9 +141,25 @@ footer {
 
 @media only screen and (max-width: 576px) {
     .navbar img {
-        max-width: 50%; /* Adjust the maximum width for smaller screens */
+        max-width: 50%;
     }
     .navbar a {
         padding: 5px;
     }
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.image1,
+.image2,
+.image3,
+.image4 {
+    width: 100%;
+    height: auto;
 }
