@@ -1,0 +1,40 @@
+body
+{
+    background-color: black;
+}
+.logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.logo img {
+    width: 60px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.about-container {
+    color: white;
+    font-weight: lighter;
+    padding: 50px;
+    margin-top: 150px;
+    text-align: justify;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, #f73b3b, #f0af38, #f3f31d, #52ff52, #4646fa, #ad45f7, #EE82EE);
+    border-image-slice: 1;
+}
+
+footer {
+    text-align: left;
+    padding-top: 50px;
+    background-color: black;
+    font-size: 16px;
+    padding: 100px;
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Bootstrap Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add custom styles here */
+    body {
+      background-color: #1A261E; /* Set the background color to #1A261E */
+      color: #fff; /* Set text color to white */
+      margin-top: 50px; /* Adjust the margin as needed */
+    }
+
+    .form-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f9fa; /* Light gray background for the form */
+      color: #000; /* Set text color to black for better visibility */
+      width: 75%; /* Set the width to 75% of the screen */
+      margin: 0 auto; /* Center the form container */
+    }
+
+    .form-group {
+      margin-bottom: 20px; /* Add margin between form groups */
+    }
+
+    .form-container hr {
+      border-color: #555; /* Set the color of the horizontal lines to a darker shade */
+      border-width: 2px; /* Set the thickness of the horizontal lines */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 form-container">
+        <h2 class="text-center">Bootstrap Form Example <small>(Please fill out the form below)</small></h2>
+        <form>
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+          </div>
+          <hr class="my-4">
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+          </div>
+          <hr class="my-4">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <hr class="my-4">
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <hr class="my-4">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

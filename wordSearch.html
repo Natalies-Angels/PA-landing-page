@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Love and Rage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Add custom styles here */
+        body {
+            background-color: #1A261E;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        .form-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            color: #000;
+            width: 75%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-container hr {
+            border-color: #555;
+            border-width: 2px;
+        }
+
+        .trail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .trail button,
+        .ice-breaker {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: background-color 0.3s;
+        }
+
+        .trail .ice-breaker {
+            width: 30px;
+            height: 2px;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -1px);
+            z-index: 1;
+        }
+
+        .trail button.special {
+            background-color: #007bff;
+        }
+
+        .trail button:nth-child(1) {
+            margin-right: auto;
+            margin-left: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            width: 150px;
+        }
+
+        .trail button:nth-child(2) {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .trail button:nth-child(3) {
+            margin-left: auto;
+            margin-right: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            width: 150px;
+        }
+
+        .trail button:nth-child(4) {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .trail button:nth-child(5) {
+            margin-right: auto;
+            margin-left: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            width: 150px;
+        }
+
+        .trail button:nth-child(6) {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 20px;
+            margin-bottom: 40px
+        }
+
+        .trail button:nth-child(7) {
+            margin-left: auto;
+            margin-right: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            width: 150px;
+        }
+
+        .trail button:hover,
+        .trail .ice-breaker:hover {
+            background-color: #218838;
+        }
+
+        /* Style for the Word Search div */
+        .word-search-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            color: #000;
+            width: 75%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .word-search {
+            display: grid;
+            grid-template-columns: repeat(8, 30px); /* Adjust the number of columns as needed */
+            gap: 1px;
+        }
+
+        .letter {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        /* Style for the Pick a Smile div */
+        .pick-a-smile-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            color: #000;
+            width: 75%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .pick-a-smile-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .smile-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .smile {
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .smile:hover {
+            color: #007bff;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-container col-md-12">
+                <h2 class="text-center">Love and Rage</h2>
+
+                <!-- Trail buttons -->
+                <div class="trail">
+                    <button onclick="openPopup('Storge.html')">1</button>
+                    <button class="special" onclick="openPopup('puzzle.html')">puzzle</button>
+                    <button onclick="openPopup('Philia.html')">2</button>
+                    <button class="special" onclick="showWordSearch()">wordSearch</button>
+                    <button onclick="openPopup('Eros.html')">3</button>
+                    <button class="special" onclick="openPickASmile()">pickASmile</button>
+                    <button onclick="openPopup('Agape.html')">4</button>
+                </div>
+
+                <!-- Word Search content -->
+                <div class="word-search-container" id="wordSearchContainer">
+                    <div class="word-search" id="word-search"></div>
+                    <button onclick="closeWordSearch()">Close</button>
+                </div>
+
+                <!-- Pick a Smile content -->
+                <div class="pick-a-smile-container" id="pickASmileContainer">
+                    <div class="pick-a-smile-content">
+                        <h2>Choose a Smile</h2>
+                        <div class="smile-container">
+                            <span class="smile" onclick="pickASmile('😊')">😊</span>
+                            <span class="smile" onclick="pickASmile('😄')">😄</span>
+                            <span class="smile" onclick="pickASmile('😁')">😁</span>
+                        </div>
+                    </div>
+                    <button onclick="closePickASmile()">Close</button>
+                </div>
+
+                <!-- Popup content -->
+                <div class="popupContainer">
+                    <!-- Content of popups goes here -->
+                </div>
+
+                <!-- Other sections -->
+                <div id="specialButton" class="section" style="display: none;">
+                    <!-- Special Button content here -->
+                </div>
+
+                <!-- Form -->
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSedDc_kIsPU72xn4FoJ4EBernkUOvI4QzfKn0upfn565plm8w/formResponse"
+                    method="post" target="hiddenConfirm" onsubmit="submitted = true">
+
+                    <!-- Form questions here -->
+
+                    <!-- <hr class="my-4"> -->
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var submitted = false;
+
+        function openPopup(htmlFile) {
+            // Fetch content from the specified HTML file and inject it into the popup
+            fetch(htmlFile)
+                .then(response => response.text())
+                .then(content => {
+                    document.querySelector(".popupContainer").innerHTML = content;
+                    document.querySelector(".popupContainer").style.display = "block";
+
+                    // Add event listener for the close button inside the popup
+                    document.querySelector(".popupContainer button").addEventListener("click", closeWordSearch);
+                });
+        }
+
+        function showWordSearch() {
+            document.querySelector(".word-search-container").style.display = "block";
+            initializeWordSearch();
+        }
+
+        function initializeWordSearch() {
+            const letters = [
+                'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
+                'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
+                'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C',
+                'O', 'S', 'S', 'A', 'C', 'E', 'C', 'E',
+                'R', 'N', 'E', 'C', 'E', 'P', 'T', 'P',
+                'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
+                'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
+                'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
+                'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
+                'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
+                'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
+                'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
+            ];
+
+            const wordSearchContainer = document.getElementById('word-search');
+            letters.forEach(letter => {
+                const letterElement = document.createElement('div');
+                letterElement.className = 'letter';
+                letterElement.textContent = letter;
+                wordSearchContainer.appendChild(letterElement);
+            });
+        }
+
+        function closeWordSearch() {
+            document.querySelector(".word-search-container").style.display = "none";
+            document.getElementById('word-search').innerHTML = '';
+        }
+
+        function openPickASmile() {
+            document.querySelector('.pick-a-smile-container').style.display = 'block';
+        }
+
+        function closePickASmile() {
+            document.querySelector('.pick-a-smile-container').style.display = 'none';
+        }
+
+        function pickASmile(smile) {
+            alert('You picked: ' + smile);
+            // You can customize this function to handle the selected smiley face
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

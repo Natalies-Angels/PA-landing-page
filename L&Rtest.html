@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Love and Rage</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="L&Rtest.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Navbar Links on the Left -->
+            <div class="d-flex justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="landingPage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactPage.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Centered Logo -->
+            <a class="logo mx-auto" href="landingPage.html">
+                <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
+            </a>
+
+            <!-- Navbar Links on the Right -->
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutPage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Am I a perpetrator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-container col-md-12">
+                <h2 class="text-center">Love and Rage</h2>
+
+                <!-- Trail buttons -->
+                <div class="trail">
+                    <button onclick="openPopup('Storge.html')">1</button>
+                    <button class="special" onclick="openPicturePuzzle()">puzzle</button>
+                    <button onclick="openPopup('Philia.html')">2</button>
+                    <button class="special" onclick="showWordSearch()">wordSearch</button>
+                    <button onclick="openPopup('Eros.html')">3</button>
+                    <button class="special" onclick="openPickASmile()">pickASmile</button>
+                    <button onclick="openPopup('Agape.html')">4</button>
+                </div>
+
+                <!-- Word Search content -->
+                <div class="word-search-container" id="wordSearchContainer">
+                    <div class="word-search" id="word-search"></div>
+                    <button onclick="closeWordSearch()">Close</button>
+                </div>
+
+                <!-- Pick a Smile content -->
+                <div class="pick-a-smile-container" id="pickASmileContainer">
+                    <div class="pick-a-smile-content">
+                        <h2>Choose a Smile</h2>
+                        <div class="smile-container">
+                            <span class="smile" onclick="pickASmile('😊')">😊</span>
+                            <span class="smile" onclick="pickASmile('😄')">😄</span>
+                            <span class="smile" onclick="pickASmile('😁')">😁</span>
+                        </div>
+                    </div>
+                    <button onclick="closePickASmile()">Close</button>
+                </div>
+
+                <!-- Picture Puzzle content -->
+                <div class="picture-puzzle-container" id="picturePuzzleContainer">
+                    <div class="picture-puzzle" id="picture-puzzle"></div>
+                    <button onclick="closePicturePuzzle()">Close</button>
+                </div>
+
+                <!-- Puzzle Ice Breaker content -->
+                <div id="popup-container">
+                    <!-- Puzzle Ice Breaker content here -->
+                    <button onclick="openWordSearch()">Open Word Search</button>
+                    <div id="puzzle-container"></div>
+                    <button onclick="closeWordSearch()">Close</button>
+                </div>
+
+                <!-- Other sections -->
+                <div id="specialButton" class="section" style="display: none;">
+                    <!-- Special Button content here -->
+                </div>
+
+                <!-- Form -->
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSedDc_kIsPU72xn4FoJ4EBernkUOvI4QzfKn0upfn565plm8w/formResponse"
+                    method="post" target="hiddenConfirm" onsubmit="submitted = true">
+
+                    <!-- Form questions here -->
+
+                    <!-- <hr class="my-4"> -->
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer col-md-12">
+        <div class="container">
+            <p>Privacy Policy | Terms of Service | Contact Us </p>
+            <p>1234 Example Street, City, Country</p>
+            <p>Phone: (123) 456-7890 | Email: info@yourwebsitename.com</p>
+            <p>© 2023 YourWebsiteName. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var submitted = false;
+
+        function openPopup(htmlFile) {
+            // Fetch content from the specified HTML file and inject it into the popup
+            fetch(htmlFile)
+                .then(response => response.text())
+                .then(content => {
+                    document.querySelector(".popupContainer").innerHTML = content;
+                    document.querySelector(".popupContainer").style.display = "block";
+
+                    // Add event listener for the close button inside the popup
+                    document.querySelector(".popupContainer button").addEventListener("click", closeWordSearch);
+                });
+        }
+
+        function showWordSearch() {
+            document.querySelector(".word-search-container").style.display = "block";
+            initializeWordSearch();
+        }
+
+        function initializeWordSearch() {
+            const letters = [
+                'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
+                'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
+                'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C', 
+                'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
+                'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
+                'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
+                'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
+                'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
+                'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
+                'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
+            ];
+
+            const wordSearchContainer = document.getElementById('word-search');
+            letters.forEach(letter => {
+                const letterElement = document.createElement('div');
+                letterElement.className = 'letter';
+                letterElement.textContent = letter;
+                wordSearchContainer.appendChild(letterElement);
+            });
+        }
+
+        function closeWordSearch() {
+            document.querySelector(".word-search-container").style.display = "none";
+            document.getElementById('word-search').innerHTML = '';
+        }
+
+        function openPickASmile() {
+            document.querySelector('.pick-a-smile-container').style.display = 'block';
+        }
+
+        function closePickASmile() {
+            document.querySelector('.pick-a-smile-container').style.display = 'none';
+        }
+
+        function pickASmile(smile) {
+            alert('You picked: ' + smile);
+            // You can customize this function to handle the selected smiley face
+        }
+
+        function openPicturePuzzle() {
+            document.querySelector('.picture-puzzle-container').style.display = 'block';
+            initializePicturePuzzle();
+        }
+
+        function initializePicturePuzzle() {
+            const picturePuzzleContainer = document.getElementById('picture-puzzle');
+            for (let i = 1; i <= 9; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'picture-piece';
+                piece.style.backgroundImage = `url('/home/natalie/Development/code/turubai/PA/Group 31 (2).png')`; // Replace with the actual path to your puzzle pieces
+                piece.addEventListener('click', () => handlePieceClick(i));
+                picturePuzzleContainer.appendChild(piece);
+            }
+        }
+
+        function handlePieceClick(pieceNumber) {
+            alert(`You clicked on puzzle piece ${pieceNumber}`);
+            // You can customize this function to handle the clicked puzzle piece
+        }
+
+        function closePicturePuzzle() {
+            document.querySelector('.picture-puzzle-container').style.display = 'none';
+            document.getElementById('picture-puzzle').innerHTML = '';
+        }
+
+        function openWordSearch() {
+            document.getElementById('popup-container').style.display = 'block';
+            initializeWordSearchPopup();
+        }
+
+        function initializeWordSearchPopup() {
+            const puzzleContainer = document.getElementById('puzzle-container');
+            puzzleContainer.innerHTML = ''; // Clear any previous puzzle pieces
+
+            // Number of rows and columns in the puzzle grid
+            const numRows = 3;
+            const numCols = 3;
+
+            for (let i = 0; i < numRows * numCols; i++) {
+                const piece = document.createElement('div');
+                piece.classList.add('puzzle-piece');
+                piece.style.backgroundImage = `url('/home/natalie/Development/code/turubai/PA/Group 31 (2).png')`; // Replace 'puzzle-image.jpg' with your image URL
+                piece.style.backgroundPosition = `-${i % numCols * 100}px -${Math.floor(i / numCols) * 100}px`;
+                piece.setAttribute('draggable', true);
+
+                // Add drag events
+                piece.addEventListener('dragstart', dragStart);
+                piece.addEventListener('dragover', dragOver);
+                piece.addEventListener('drop', drop);
+
+                puzzleContainer.appendChild(piece);
+            }
+        }
+
+        function dragStart(e) {
+            draggedElement = e.target;
+            e.dataTransfer.setData('text/plain', ''); // Set data to allow drag
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            if (draggedElement) {
+                const target = e.target;
+
+                if (target.classList.contains('puzzle-piece')) {
+                    const parent = target.parentElement;
+                    const nextElement = target.nextSibling;
+
+                    if (nextElement) {
+                        parent.insertBefore(draggedElement, nextElement);
+                    } else {
+                        parent.appendChild(draggedElement);
+                    }
+                } else if (target.id === 'puzzle-container') {
+                    const container = document.getElementById('puzzle-container');
+                    container.appendChild(draggedElement);
+                }
+
+                draggedElement = null;
+            }
+        }
+
+        function closeWordSearch() {
+    const wordSearchContainer = document.querySelector(".word-search-container");
+    const wordSearchContent = document.getElementById("word-search");
+
+    // Clear the content inside the Word Search container
+    wordSearchContent.innerHTML = '';
+
+    // Hide the Word Search container
+    wordSearchContainer.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
+

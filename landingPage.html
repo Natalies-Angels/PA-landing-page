@@ -9,33 +9,45 @@
     <link rel="stylesheet" href="landingPageStyle.css">
 </head>
 
-<body>
-
-    <div class="logo">
-        <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo">
-    </div>
-    <nav class="navbar navbar-dark bg-black">
+<body>   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container-fluid">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <!-- Navbar Links on the Left -->
+            <div class="d-flex justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="landingPage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactPage.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Centered Logo -->
+            <a class="logo mx-auto" href="landingPage.html">
+                <img src="/home/natalie/Development/code/turubai/PA/assets/PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
+            </a>
+
+            <!-- Navbar Links on the Right -->
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutPage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Am I a perpetrator</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <div class="collapse" id="navbarToggleExternalContent">
-        <a class="text-muted" href="#">Link 1</a>
-        <a class="text-muted" href="#">Link 2</a>
-        <a class="text-muted" href="#">Link 3</a>
-        <a class="text-muted" href="#">Link 4</a>
-    </div>
 
     <div class="nav-and-cta">
         <div class="custom-container mt-3">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="PAArtboard_1_copy_2x-100-removebg-preview.png" alt="oops" class="cta-image">
+                    <img src="/home/natalie/Development/code/turubai/PA/assets/PAArtboard_1_copy_2x-100-removebg-preview.png" alt="oops" class="cta-image">
                 </div>
                 <div class="col-md-6">
                     <div class="cta-paragraph">
@@ -44,7 +56,7 @@
                             Ut laoreet, ipsum a dignissim auctor, arcu neque tempor ligula, Ut laoreet, ipsum
                             Ut laoreet, ipsum a dignissim auctor, arcu neque tempor ligu
                         </div>
-                        <div class="rsvp-info">
+                        <!-- <div class="rsvp-info">
                             <div class="left-info">
                                 RSVP<br>
                                 http//ligula,Ut laoreet, ipsum
@@ -54,9 +66,9 @@
                                 DEC - JAN<br>
                                 2023 / 2024
                             </div>
-                        </div>
+                        </div> -->
                         <div class="d-flex justify-content-center">
-                            <button class="cta-btn">Learn More</button>
+                            <button class="cta-btn" onclick="openEventPage()">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -70,24 +82,27 @@
                 <div class="who-we-are">
                     <strong>who we are ...</strong>
                 </div>
-                <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error inventore mollitia cupiditate
-                    perferendis voluptas illum, repellendus, quod nobis aspernatur dolorum necessitatibus pariatur
-                    repellat dolores tempora a incidunt maiores? Laborum, hic.
-                    Lorem ipsumLorem ipsum dolor, sit amet consectetur adipisicing elit. Error inventore mollitia
-                    cupiditate
-                    perferendis voluptas illum, repellendus, quod nobis aspernatur dolorum necessitatibus pariatur
-                    repellat dolores tempora a incidunt maiores? Laborum, hic.
-                    Lorem ipsum
+                <p> Mission: Empowering Growth, Fostering Accountability. 
+                    Our mission at Perpetrators Anonymous is to provide a confidential and supportive space for individuals committed to personal transformation. 
+                    We strive to empower individuals who have caused harm to recognize their potential for change, promoting a journey towards accountability, 
+                    healing, and positive growth.
+                </p><br>
+                <p>
+
+                    Vision: A World Transformed by Accountability and Redemption. 
+                    Our vision is of a world where individuals who have caused harm find the support and resources needed for genuine transformation. 
+                    We envision a society that prioritizes rehabilitation over condemnation, fostering understanding, 
+                    empathy, and collective responsibility for positive change.
                 </p>
                 <div class="d-flex justify-content-center">
-                    <button class="btn">Learn More</button>
+                    <button class="btn" onclick="openAboutPage()">Learn More</button>
                 </div>
             </div>
             <div class="col-md-6 image-container">
-                <img src="IMG_20221105_155950_HDR (1).jpg" alt="Image 1" class="image1">
-                <img src="S.G Palms 13.8.2022 (1).jpg" alt="Image 2" class="image2">
-                <img src="IMG_20230311_154358_HDR (1).jpg" alt="Image 3" class="image3 rotate-90">
-                <img src="S.G Palms 13.8.2022 (1).jpg" alt="Image 4" class="image4">
+                <img src="/home/natalie/Development/code/turubai/PA/assets/IMG_20221105_155950_HDR (1).jpg" alt="Image 1" class="image1">
+                <img src="/home/natalie/Development/code/turubai/PA/assets/S.G Palms 13.8.2022 (1).jpg" alt="Image 2" class="image2">
+                <img src="/home/natalie/Development/code/turubai/PA/assets/IMG_20230311_154358_HDR (1).jpg" alt="Image 3" class="image3 rotate-90">
+                <img src="/home/natalie/Development/code/turubai/PA/assets/S.G Palms 13.8.2022 (1).jpg" alt="Image 4" class="image4">
             </div>
         </div>
     </div>
@@ -104,6 +119,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        <script>
+            function openEventPage() {
+                window.location.href = 'L&Rtest.html';
+            }
+            function openAboutPage() {
+                window.location.href = 'aboutPage.html';
+            }
+        </script>
 
 </body>
 

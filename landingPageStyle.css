@@ -1,8 +1,8 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     position: relative;
-}
+} */
 
 .logo {
     position: absolute;
@@ -26,7 +26,8 @@ nav {
     width: 65%;
     object-fit: cover;
     margin-left: 50px;
-    margin-top: -20px;
+    margin-top: -10px;
+    padding-top: 40px ;
 }
 
 hr {
@@ -177,4 +178,24 @@ footer {
 .image4 {
     width: 100%;
     height: auto;
+}
+
+#navbarToggleExternalContent
+{
+    color: black;
+    background-color: #A7A5A5 !important;
+    padding: 10px;
+    transition: height 1s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+/* #navbarToggleExternalContent.no-transition {
+    transition: none !important;
+} */
+#navbarToggleExternalContent.show {
+    max-height: 200px; /* Adjust the maximum height based on your content */
+}
+.navbar {
+    max-width: 100%;
+    overflow: hidden;
 }

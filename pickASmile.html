@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="iceBreakers.css">
+  <title>Ice Breakers</title>
+</head>
+<body>
+
+  <!-- "Pick a Smile" Buttons -->
+  <div class="button-container">
+    <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 3')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 4')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 5')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 6')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 7')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 8')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 9')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+    <button class="button" onclick="openPopup('Button 20', 'Popup content for Button 10')">Pick a smile</button>
+  </div>
+
+  <!-- Popup for "Pick a Smile" -->
+  <div class="popup" id="popup">
+    <span onclick="closePopup()" style="cursor: pointer; float: right;">&times;</span>
+    <div id="popupContent"></div>
+  </div>
+
+  <!-- Puzzle Container -->
+  <div id="puzzle-container"></div>
+
+  <script>
+    // JavaScript code for word search, puzzle, and "Pick a smile" functionality
+    function openPopup(buttonText, popupContent) {
+      document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function openWordSearch() {
+      const letters = [
+        'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
+        'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
+        'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C',
+        'O', 'S', 'S', 'A', 'C', 'E', 'C', 'E',
+        'R', 'N', 'E', 'C', 'E', 'P', 'T', 'P',
+        'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
+        'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
+        'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
+        'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
+        'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
+        'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
+        'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
+      ];
+
+      initializeWordSearch(letters);
+      document.getElementById('popup-container').style.display = 'block';
+    }
+
+    function initializeWordSearch(letters) {
+      const wordSearchContainer = document.getElementById('word-search');
+      wordSearchContainer.innerHTML = '';
+
+      for (let i = 0; i < letters.length; i++) {
+        const letter = document.createElement('div');
+        letter.className = 'letter';
+        letter.textContent = letters[i];
+        wordSearchContainer.appendChild(letter);
+      }
+    }
+
+    function closeWordSearch() {
+      document.getElementById('popup-container').style.display = 'none';
+    }
+
+    // Number of rows and columns in the puzzle grid
+    const numRows = 3;
+    const numCols = 3;
+
+    // Function to create puzzle pieces
+    function createPuzzlePieces() {
+      const container = document.getElementById('puzzle-container');
+
+      for (let i = 0; i < numRows * numCols; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('puzzle-piece');
+        piece.style.backgroundImage = `url('Group 31 (2).png')`; // Replace 'puzzle-image.jpg' with your image URL
+        piece.style.backgroundPosition = `-${i % numCols * 100}px -${Math.floor(i / numCols) * 100}px`;
+        piece.setAttribute('draggable', true);
+
+        // Add drag events
+        piece.addEventListener('dragstart', dragStart);
+        piece.addEventListener('dragover', dragOver);
+        piece.addEventListener('drop', drop);
+
+        container.appendChild(piece);
+      }
+    }
+
+    let draggedElement = null;
+
+    // Drag event handlers
+    function dragStart(e) {
+      draggedElement = e.target;
+      e.dataTransfer.setData('text/plain', ''); // Set data to allow drag
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function drop(e) {
+      e.preventDefault();
+      if (draggedElement) {
+        const target = e.target;
+
+        if (target.classList.contains('puzzle-piece')) {
+          const parent = target.parentElement;
+          const nextElement = target.nextSibling;
+
+          if (nextElement) {
+            parent.insertBefore(draggedElement, nextElement);
+          } else {
+            parent.appendChild(draggedElement);
+          }
+        } else if (target.id === 'puzzle-container') {
+          const container = document.getElementById('puzzle-container');
+          container.appendChild(draggedElement);
+        }
+
+        draggedElement = null;
+      }
+    }
+
+    // Initialize the puzzle
+    createPuzzlePieces();
+  </script>
+</body>
+</html>
+
+
+  <script>
+    function openPopup(buttonText, popupContent) {
+      document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function openWordSearch() {
+      const letters = [
+        'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
+        'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
+        'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C',
+        'O', 'S', 'S', 'A', 'C', 'E', 'C', 'E',
+        'R', 'N', 'E', 'C', 'E', 'P', 'T', 'P',
+        'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
+        'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
+        'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
+        'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
+        'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
+        'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
+        'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
+      ];
+
+      initializeWordSearch(letters);
+      document.getElementById('popup-container').style.display = 'block';
+    }
+
+    function initializeWordSearch(letters) {
+      const wordSearchContainer = document.getElementById('word-search');
+      wordSearchContainer.innerHTML = '';
+
+      for (let i = 0; i < letters.length; i++) {
+        const letter = document.createElement('div');
+        letter.className = 'letter';
+        letter.textContent = letters[i];
+        wordSearchContainer.appendChild(letter);
+      }
+    }
+
+    function closeWordSearch() {
+      document.getElementById('popup-container').style.display = 'none';
+    }
+
+    // Number of rows and columns in the puzzle grid
+    const numRows = 3;
+    const numCols = 3;
+
+    // Function to create puzzle pieces
+    function createPuzzlePieces() {
+      const container = document.getElementById('puzzle-container');
+
+      for (let i = 0; i < numRows * numCols; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('puzzle-piece');
+        piece.style.backgroundImage = `url('Group 31 (2).png')`; // Replace 'puzzle-image.jpg' with your image URL
+        piece.style.backgroundPosition = `-${i % numCols * 100}px -${Math.floor(i / numCols) * 100}px`;
+        piece.setAttribute('draggable', true);
+
+        // Add drag events
+        piece.addEventListener('dragstart', dragStart);
+        piece.addEventListener('dragover', dragOver);
+        piece.addEventListener('drop', drop);
+
+        container.appendChild(piece);
+      }
+    }
+
+    let draggedElement = null;
+
+    // Drag event handlers
+    function dragStart(e) {
+      draggedElement = e.target;
+      e.dataTransfer.setData('text/plain', ''); // Set data to allow drag
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function drop(e) {
+      e.preventDefault();
+      if (draggedElement) {
+        const target = e.target;
+
+        if (target.classList.contains('puzzle-piece')) {
+          const parent = target.parentElement;
+          const nextElement = target.nextSibling;
+
+          if (nextElement) {
+            parent.insertBefore(draggedElement, nextElement);
+          } else {
+            parent.appendChild(draggedElement);
+          }
+        } else if (target.id === 'puzzle-container') {
+          const container = document.getElementById('puzzle-container');
+          container.appendChild(draggedElement);
+        }
+
+        draggedElement = null;
+      }
+    }
+
+    // Initialize the puzzle
+    createPuzzlePieces();
+  </script>
+</body>
+</html>
