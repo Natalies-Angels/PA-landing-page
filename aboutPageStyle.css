@@ -60,6 +60,7 @@ footer {
     nav {
         z-index: 0;
         overflow: hidden; /* Add this line to prevent navbar overflow */
+        padding: 0px;
     }
 
     .navbar {

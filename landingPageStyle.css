@@ -184,6 +184,27 @@ footer {
     max-width: 100%;
     overflow: hidden;
 }
+
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Adjust as needed */
+    gap: 20px; /* Adjust gap as needed */
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.image1 {
+    width: 100%; /* Width of the top image */
+    height: auto;
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.image2,
+.image3 {
+    width: 48%; /* Width of the bottom images */
+    height: auto;
+}
+
 /* Updated CSS for responsiveness */
 
 /* ... (existing CSS) ... */

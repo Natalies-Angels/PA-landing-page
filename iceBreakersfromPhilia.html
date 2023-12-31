@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #1A261E; /* Set the background color to #1A261E */
+      color: #fff; /* Set text color to white */
+    }
+
+    #puzzle-container {
+      display: grid;
+      grid-template-columns: repeat(3, 150px); /* Adjust based on your needs */
+      gap: 10px; /* Adjust based on your needs */
+      justify-content: center; /* Center the grid */
+      padding: 50px; /* Add padding to the puzzle container */
+      margin-top: 20px; /* Adjusted margin-top */
+    }
+
+    .puzzle-piece {
+      width: 150px; /* Adjust based on your needs */
+      height: 150px; /* Adjust based on your needs */
+      background-size: 450px 450px; /* Set background size to fit 3x3 grid */
+      border: 1px solid #ddd; /* Adjust based on your needs */
+      cursor: grab; /* Add grab cursor */
+      transition: transform 0.5s ease; /* Add transition for smooth distortion */
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between; /* Adjusted justify-content */
+      margin-left: 50px; /* Added margin-left */
+      margin-right: 50px; /* Added margin-right */
+      margin-top: 10px; /* Adjusted margin-top */
+    }
+
+    .shuffle-btn,
+    .reveal-btn {
+      background-color: red; /* Adjust button colors as needed */
+      padding: 10px;
+      color: white;
+      width: 100px; /* Adjust button width as needed */
+    }
+
+    .reveal-btn {
+      background-color: green; /* Adjust button color for reveal button */
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .close-btn {
+      background-color: red; /* Change color as needed */
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 20px; /* Add margin to the paragraph */
+    }
+
+    a {
+      color: #3498db; /* Link color */
+      text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+
+    .logo img {
+      width: 60px; /* Adjust the width as needed */
+      height: auto; /* Maintain the aspect ratio */
+    }
+  </style>
+  <title>Puzzle Game</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar Links on the Left -->
+      <div class="d-flex justify-content-start">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactPage.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Centered Logo -->
+      <a class="logo mx-auto" href="index.html">
+        <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo" class="d-inline-block align-top">
+      </a>
+
+      <!-- Navbar Links on the Right -->
+      <div class="d-flex justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Am I a perpetrator</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Puzzle Container -->
+  <div id="puzzle-container"></div>
+
+  <!-- Button Container -->
+  <div class="button-container">
+    <!-- Shuffle Button -->
+    <button class="shuffle-btn" onclick="distortPuzzle()">Shuffle</button>
+    <!-- Reveal Original Button -->
+    <button class="reveal-btn" onclick="revealOriginal()">Reveal Original</button>
+  </div>
+
+  <!-- Reveal Original Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeReveal()">X</button>
+      <img src="Group 31 (2).png" alt="Original" style="width: 100%; height: auto;">
+    </div>
+  </div>
+
+  <script>
+    // Number of rows and columns in the puzzle grid
+    const numRows = 3;
+    const numCols = 3;
+
+    // Function to create puzzle pieces
+    function createPuzzlePieces() {
+      const container = document.getElementById('puzzle-container');
+
+      for (let i = 0; i < numRows * numCols; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('puzzle-piece');
+        piece.style.backgroundImage = `url('Group 31 (2).png')`;
+        piece.style.backgroundPosition = `-${i % numCols * 150}px -${Math.floor(i / numCols) * 150}px`;
+        piece.setAttribute('draggable', true);
+
+        // Add drag events
+        piece.addEventListener('dragstart', dragStart);
+        piece.addEventListener('dragover', dragOver);
+        piece.addEventListener('drop', drop);
+
+        container.appendChild(piece);
+      }
+    }
+
+    // Function to distort puzzle pieces
+    function distortPuzzle() {
+      const pieces = document.querySelectorAll('.puzzle-piece');
+      const shuffledPieces = Array.from(pieces).sort(() => Math.random() - 0.5);
+      const container = document.getElementById('puzzle-container');
+
+      container.innerHTML = ''; // Clear the container
+
+      shuffledPieces.forEach(piece => {
+        piece.style.transform = 'none'; // Reset the transform
+        container.appendChild(piece);
+      });
+    }
+
+    // Function to reveal original image
+    function revealOriginal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'flex';
+    }
+
+    // Function to close reveal modal
+    function closeReveal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'none';
+    }
+
+    let draggedElement = null;
+
+    // Drag event handlers
+    function dragStart(e) {
+      draggedElement = e.target;
+      e.dataTransfer.setData('text/plain', ''); // Set data to allow drag
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function drop(e) {
+      e.preventDefault();
+      if (draggedElement) {
+        const target = e.target;
+
+        if (target.classList.contains('puzzle-piece')) {
+          const parent = target.parentElement;
+          const nextElement = target.nextSibling;
+
+          if (nextElement) {
+            parent.insertBefore(draggedElement, nextElement);
+          } else {
+            parent.appendChild(draggedElement);
+          }
+        } else if (target.id === 'puzzle-container') {
+          const container = document.getElementById('puzzle-container');
+          container.appendChild(draggedElement);
+        }
+
+        draggedElement = null;
+      }
+    }
+
+    // Initialize the puzzle
+    createPuzzlePieces();
+  </script>
+  <p>
+    <a href="Storge.html">Next</a>
+  </p>
+</body>
+
+</html>

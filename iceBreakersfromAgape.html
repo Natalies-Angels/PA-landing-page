@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #1A261E; /* Set the background color to #1A261E */
+      color: #fff; /* Set text color to white */
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      margin-top: 50px;
+    }
+
+    .button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .popupContent {
+      text-align: center;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .logo img {
+      width: 60px; /* Adjust the width as needed */
+      height: auto; /* Maintain the aspect ratio */
+    }
+
+    .footer.container {
+      text-align: left;
+      padding-top: 50px;
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+    h3{
+      margin-top: 100px;
+      text-align: center;
+    }
+    .next-container {
+  text-align: center; /* Center the text within the container */
+  margin-top: 20px; /* Add some top margin for spacing */
+}
+
+.next {
+  background-color: rgb(189, 50, 50);
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <title>Pick a Smile Game</title>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+      <div class="container-fluid">
+          <!-- Navbar Links on the Left -->
+          <div class="d-flex justify-content-start">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contactPage.html">Contact</a>
+                  </li>
+              </ul>
+          </div>
+  
+          <!-- Centered Logo -->
+          <a class="logo mx-auto" href="index.html">
+              <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
+          </a>
+  
+          <!-- Navbar Links on the Right -->
+          <div class="d-flex justify-content-end">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Am I a perpetrator</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+    <h3>Pick a Smile </h3>
+    <!-- "Pick a Smile" Buttons -->
+    <div class="button-container">
+      <!-- Use different smiley face characters as button text -->
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 1', 'Popup content for Button 1')">😊</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+      <button class="button" onclick="openPopup('Button 2', 'Popup content for Button 2')">😄</button>
+    </div>
+
+    <!-- Popup for "Pick a Smile" -->
+    <div class="popup" id="popup">
+      <span onclick="closePopup()" style="cursor: pointer; float: right;">&times;</span>
+      <div id="popupContent" class="popupContent"></div>
+    </div>
+
+    <script>
+      function openPopup(buttonText, popupContent) {
+        document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
+        document.getElementById('popup').style.display = 'block';
+      }
+
+      function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+      }
+    </script>
+    <script>
+      function navigateToEros() {
+        window.location.href = 'Eros.html';
+      }
+    </script>
+
+    <!-- Place this div around the Next button -->
+  <div class="next-container">
+    <button class="next" onclick="navigateToEros()">Next</button>
+  </div>
+
+    <a href="Eros.html">Eros Page</a>
+  </div>
+</body>
+</html>

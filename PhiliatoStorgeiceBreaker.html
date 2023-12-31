@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progression to Agape</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #1A261E;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        #timer-container {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        #timer {
+            font-size: 24px;
+            color: #28a745;
+        }
+
+        #progress-message {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        .col-md-12 {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            color: #000;
+            margin-top: 20px;
+        }
+
+        .fun-heading {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 36px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .mb-4 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border-color: #555;
+            border-width: 2px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-12 form-container">
+            <h2 class="text-center fun-heading">Love and Rage</h2>
+            <hr class="my-4">
+            <div id="timer-container">
+                <div id="timer">10s</div>
+            </div>
+            <!-- Add a new element to display the message -->
+            <div id="progress-message"></div>
+<script>
+    function updateTimer() {
+        var timerContainer = document.getElementById('timer-container');
+        var timerElement = document.getElementById('timer');
+        var progressMessage = document.getElementById('progress-message');
+
+        var seconds = 10; // Set the countdown duration in seconds
+
+        function displayTime() {
+            timerElement.textContent = seconds + 's';
+            seconds--;
+        }
+
+        displayTime(); // Display the initial time
+
+        var timerInterval = setInterval(function () {
+            displayTime();
+
+            if (seconds < 0) {
+                // Show the timer after the countdown
+                timerContainer.style.display = 'none';
+                progressMessage.textContent = '';
+                // Redirect to Eros.html after the timer completes
+                setTimeout(function () {
+                    window.location.href = 'Storge.html';
+                }, 2000); // Adjust the timeout duration as needed
+                clearInterval(timerInterval);
+            }
+        }, 1000);
+    }
+
+    // Call the function to see the timer in action
+    updateTimer();
+</script>
+<hr class="my-4">
+<div>
+    <label>You are heading to the next Form</label>
+</div>
+<hr class="my-4">
+<div>
+    <label>Wait a moment</label>
+</div>
+<hr class="my-4">
+<div>
+    <label>We hope you are enj</label>
+</div>
+<hr class="my-4">
+</div></div></div>
+</body>
+</html>
