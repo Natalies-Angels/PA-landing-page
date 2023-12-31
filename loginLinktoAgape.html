@@ -32,7 +32,6 @@
         }
 
         .fun-heading {
-            font-family: 'Comic Sans MS', cursive;
             font-size: 36px;
             color: #000;
             text-transform: uppercase;
@@ -51,34 +50,56 @@
                 opacity: 1;
             }
         }
+/* Add new CSS for loading spinner square with smoothly transitioning red-green-red color, slower rotation, and improved white glare */
+.loading-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    animation: spin 6s linear infinite, colorTransition 50s linear infinite; /* Adjust the durations for rotation and color transition */
+    margin: 20px auto;
+}
 
-        /* Add new CSS for loading spinner */
+/* Add new CSS for loading spinner square with smooth color transition and slower rotation */
         .loading-spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        animation: spin 6s linear infinite, colorTransition 20s linear infinite; /* Adjust the durations for rotation and color transition */
+        margin: 20px auto;
+        border: 5px solid transparent;
+        border-image: conic-gradient(
+            from 45deg, 
+            rgb(204, 61, 61) 0%, 
+            #ffcccc 25%, 
+            #ffffff 50%, 
+            #a2fca2 75%, 
+            rgb(81, 173, 81) 100%
+        ) 1; /* Use border-image for the gradient effect */
+        border-radius: 2.5px; /* Set border-radius to half of the width for a square */
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
         }
-        .logo {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
 
-    .logo img {
-      width: 60px; /* Adjust the width as needed */
-      height: auto; /* Maintain the aspect ratio */
-    }
+        @keyframes colorTransition {
+            0%, 100% { border-image-source: conic-gradient(from 45deg, rgb(204, 61, 61) 0%, #ffcccc 25%, #ffffff 50%, #a2fca2 75%, rgb(81, 173, 81) 100%); }
+            50% { border-image-source: conic-gradient(from 45deg, rgb(81, 173, 81) 0%, #a2fca2 25%, #ffffff 50%, #ffcccc 75%, rgb(204, 61, 61) 100%); }
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .logo img {
+            width: 60px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -115,66 +136,66 @@
         </div>
     </nav>
     
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12 form-container">
-            <h2 class="text-center fun-heading fade-in">Love and Rage</h2>
-            <hr class="my-4">
-            <!-- Add a new element for the loading spinner -->
-            <div class="loading-spinner"></div>
-            <!-- Add a new element to display the message -->
-            <div id="progress-message" class="fade-in"></div>
-            <script>
-                function updateLoadingSpinner() {
-                    var progressMessage = document.getElementById('progress-message');
-
-                    var seconds = 15; // Set the progress duration in seconds
-
-                    var sentences = [
-                        'You are heading to the next Form',
-                        'Wait a moment',
-                        'We hope you are enjoying the journey',
-                        'Have fun!!!'
-                    ];
-
-                    var sentenceIndex = 0;
-
-                    // Display the first sentence after 1 second
-                    setTimeout(function () {
-                        progressMessage.textContent = sentences[sentenceIndex];
-                    }, 1000);
-
-                    var progressInterval = setInterval(function () {
-                        if (seconds <= 0) {
-                            // Redirect to Philia.html after the progress completes
-                            setTimeout(function () {
-                                window.location.href = 'Agape.html';
-                            }, 2000); // Adjust the timeout duration as needed
-                            clearInterval(progressInterval);
-                        } else {
-                            // Display a new sentence every 4 seconds
-                            if (seconds % 4 === 0) {
-                                progressMessage.classList.remove('fade-in');
-
-                                // Add the 'fade-in' class after 2 seconds
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 form-container">
+                <h2 class="text-center fun-heading fade-in">Love and Rage</h2>
+                <hr class="my-4">
+                <!-- Add a new element for the loading spinner -->
+                <div class="loading-spinner"></div>
+                <!-- Add a new element to display the message -->
+                <div id="progress-message" class="fade-in"></div>
+                <script>
+                    function updateLoadingSpinner() {
+                        var progressMessage = document.getElementById('progress-message');
+    
+                        var seconds = 15; // Set the progress duration in seconds
+    
+                        var sentences = [
+                            'You are heading to the next Form',
+                            'Wait a moment',
+                            'We hope you are enjoying the journey',
+                            'Have fun!!!'
+                        ];
+    
+                        var sentenceIndex = 0;
+    
+                        // Display the first sentence after 1 second
+                        setTimeout(function () {
+                            progressMessage.textContent = sentences[sentenceIndex];
+                        }, 1000);
+    
+                        var progressInterval = setInterval(function () {
+                            if (seconds <= 0) {
+                                // Redirect to Philia.html after the progress completes
                                 setTimeout(function () {
-                                    sentenceIndex = (sentenceIndex + 1) % sentences.length;
-                                    progressMessage.textContent = sentences[sentenceIndex];
-                                    progressMessage.classList.add('fade-in');
-                                }, 2000);
+                                    window.location.href = 'Agape.html';
+                                }, 2000); // Adjust the timeout duration as needed
+                                clearInterval(progressInterval);
+                            } else {
+                                // Display a new sentence every 4 seconds
+                                if (seconds % 4 === 0) {
+                                    progressMessage.classList.remove('fade-in');
+    
+                                    // Add the 'fade-in' class after 2 seconds
+                                    setTimeout(function () {
+                                        sentenceIndex = (sentenceIndex + 1) % sentences.length;
+                                        progressMessage.textContent = sentences[sentenceIndex];
+                                        progressMessage.classList.add('fade-in');
+                                    }, 2000);
+                                }
                             }
-                        }
-
-                        seconds--;
-                    }, 1000);
-                }
-
-                // Call the function to see the loading spinner in action
-                updateLoadingSpinner();
-            </script>
-            <hr class="my-4">
+    
+                            seconds--;
+                        }, 1000);
+                    }
+    
+                    // Call the function to see the loading spinner in action
+                    updateLoadingSpinner();
+                </script>
+                <hr class="my-4">
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
