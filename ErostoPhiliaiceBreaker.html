@@ -15,25 +15,10 @@
             margin-top: 50px;
         }
 
-        #timer-container {
-            margin-top: 80px;
-            text-align: center;
-        }
-
-        #timer {
-            font-size: 24px;
-            color: #28a745;
-        }
-
-        #progress-message {
-            color: #fff;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
         .container {
             width: 75%;
             margin: 0 auto;
+            margin-top: 100px;
         }
 
         .col-md-12 {
@@ -43,6 +28,7 @@
             background-color: #f8f9fa;
             color: #000;
             margin-top: 20px;
+            text-align: center; /* Center the text within the div */
         }
 
         .fun-heading {
@@ -52,97 +38,143 @@
             text-transform: uppercase;
         }
 
-        .mb-4 {
-            margin-bottom: 20px;
+        /* Add new CSS for fading effect */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        hr {
-            border-color: #555;
-            border-width: 2px;
+        /* Add new CSS for loading spinner */
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
         }
 
-        .text-center {
-            text-align: center;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
+        .logo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
+    .logo img {
+      width: 60px; /* Adjust the width as needed */
+      height: auto; /* Maintain the aspect ratio */
+    }
     </style>
 </head>
 <body>
-
-<div class="container">
-        <div class="row justify-content-center">
-        <div class="col-md-12 form-container">
-            <h2 class="text-center fun-heading">Love and Rage</h2>
-            <hr class="my-4">
-            <div id="timer-container">
-                <div id="timer">10s</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container-fluid">
+            <!-- Navbar Links on the Left -->
+            <div class="d-flex justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactPage.html">Contact</a>
+                    </li>
+                </ul>
             </div>
+    
+            <!-- Centered Logo -->
+            <a class="logo mx-auto" href="index.html">
+                <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
+            </a>
+    
+            <!-- Navbar Links on the Right -->
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Am I a perpetrator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 form-container">
+            <h2 class="text-center fun-heading fade-in">Love and Rage</h2>
+            <hr class="my-4">
+            <!-- Add a new element for the loading spinner -->
+            <div class="loading-spinner"></div>
             <!-- Add a new element to display the message -->
-            <div id="progress-message"></div>
-<script>
-    function updateTimer() {
-        var timerContainer = document.getElementById('timer-container');
-        var timerElement = document.getElementById('timer');
-        var progressMessage = document.getElementById('progress-message');
+            <div id="progress-message" class="fade-in"></div>
+            <script>
+                function updateLoadingSpinner() {
+                    var progressMessage = document.getElementById('progress-message');
 
-        var seconds = 10; // Set the countdown duration in seconds
+                    var seconds = 15; // Set the progress duration in seconds
 
-        function displayTime() {
-            timerElement.textContent = seconds + 's';
-            seconds--;
-        }
+                    var sentences = [
+                        'You are heading to the next Form',
+                        'Wait a moment',
+                        'We hope you are enjoying the journey',
+                        'Have fun!!!'
+                    ];
 
-        displayTime(); // Display the initial time
+                    var sentenceIndex = 0;
 
-        var timerInterval = setInterval(function () {
-            displayTime();
+                    // Display the first sentence after 1 second
+                    setTimeout(function () {
+                        progressMessage.textContent = sentences[sentenceIndex];
+                    }, 1000);
 
-            if (seconds < 0) {
-                // Show the timer after the countdown
-                timerContainer.style.display = 'none';
-                progressMessage.textContent = '';
-                // Redirect to Eros.html after the timer completes
-                setTimeout(function () {
-                    window.location.href = 'Philia.html';
-                }, 2000); // Adjust the timeout duration as needed
-                clearInterval(timerInterval);
-            }
-        }, 1000);
-    }
+                    var progressInterval = setInterval(function () {
+                        if (seconds <= 0) {
+                            // Redirect to Philia.html after the progress completes
+                            setTimeout(function () {
+                                window.location.href = 'Philia.html';
+                            }, 2000); // Adjust the timeout duration as needed
+                            clearInterval(progressInterval);
+                        } else {
+                            // Display a new sentence every 4 seconds
+                            if (seconds % 4 === 0) {
+                                progressMessage.classList.remove('fade-in');
 
-    // Call the function to see the timer in action
-    updateTimer();
-</script>
-<hr class="my-4">
-<div>
-    <label>You are heading to the next Form</label>
+                                // Add the 'fade-in' class after 2 seconds
+                                setTimeout(function () {
+                                    sentenceIndex = (sentenceIndex + 1) % sentences.length;
+                                    progressMessage.textContent = sentences[sentenceIndex];
+                                    progressMessage.classList.add('fade-in');
+                                }, 2000);
+                            }
+                        }
+
+                        seconds--;
+                    }, 1000);
+                }
+
+                // Call the function to see the loading spinner in action
+                updateLoadingSpinner();
+            </script>
+            <hr class="my-4">
+        </div>
+    </div>
 </div>
-<hr class="my-4">
-<div>
-    <label>Wait a moment</label>
-</div>
-<hr class="my-4">
-<div>
-    <label>We hope you are enj</label>
-</div>
-<hr class="my-4">
-</div></div></div>
 </body>
 </html>
