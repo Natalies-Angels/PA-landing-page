@@ -7,14 +7,14 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
         body {
-          font-family: 'Arial', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #1A261E; /* Set the background color to #1A261E */
-      color: #fff; /* Set text color to white */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #1A261E; /* Set the background color to #1A261E */
+            color: #fff; /* Set text color to white */
         }
 
         .board {
@@ -27,7 +27,7 @@
         .cell {
             width: 100px;
             height: 100px;
-            border: 1px solid #333;
+            border: 1px solid #adadad;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,125 +36,144 @@
         }
 
         .button-container {
-            margin-top: 20px;
+            margin-top: 10px;
             display: flex;
-            gap: 10px;
+            gap: 5px;
             margin: auto;
         }
 
         button {
-          background-color: transparent;
-  border: 1px solid white;
-  border-radius: 8px;
-  box-shadow: 0; /* Set box-shadow to 0 */
-  margin: 10px;
-  padding: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  color: rgb(199, 197, 197);
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 8px;
+            box-shadow: 0; /* Set box-shadow to 0 */
+            padding: 8px;
+            font-size: 14px;
+            margin: 10px;
+            cursor: pointer;
+            color: rgb(199, 197, 197);
         }
 
         .winning-cell {
             background-color: yellow;
         }
+
         .logo {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    p
-    {
-      margin: auto;
-      margin-top: 150px;
-      margin-bottom: 10px;
-      text-align: center;
-      font-size: larger;
-    }
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
 
-    .logo img {
-      width: 60px; /* Adjust the width as needed */
-      height: auto; /* Maintain the aspect ratio */
-    }
-    @media only screen and (max-width: 500px) {
-    .word-search-letter {
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      font-size: 12px; /* Adjust the font size as needed */
-    }
-    body{
-      font-size: 12px;
-    }
-    .timer{
-      font-size: 12px;
-    }
-    .word-search-container
-    {
-      margin-top: 200px;
-    }
-    
-    .logo {
-        transform: none;
-        left: 35%;
-    }
+        .logo img {
+            width: 50px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+        }
 
-    .logo img {
-        width: 40%;
-    }
+        p {
+            margin: auto;
+            margin-top: 150px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: medium;
+        }
 
-    nav {
-        text-align: center;
-    }
+        @media only screen and (max-width: 500px) {
+            .word-search-letter {
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px; /* Adjust the font size as needed */
+            }
 
-    .navbar {
-        flex-direction: column;
-        
-    }
-  }
+            body {
+                font-size: 12px;
+            }
+
+            .timer {
+                font-size: 12px;
+            }
+
+            .board {
+                grid-template-columns: repeat(3, 60px);
+            }
+
+            .cell {
+                width: 60px;
+                height: 60px;
+                font-size: 14px;
+            }
+
+            .button-container {
+                margin-top: 5px;
+            }
+
+            button {
+                padding: 3px;
+                font-size: 12px;
+            }
+
+            .logo {
+                transform: none;
+                left: 35%;
+            }
+
+            .logo img {
+                width: 40%;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
-    <div class="container-fluid">
-      <!-- Navbar Links on the Left -->
-      <div class="d-flex justify-content-start">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactPage.html">contact</a>
-          </li>
-        </ul>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container-fluid">
+            <!-- Navbar Links on the Left -->
+            <div class="d-flex justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactPage.html">contact</a>
+                    </li>
+                </ul>
+            </div>
 
-      <!-- Centered Logo -->
-      <a class="logo mx-auto" href="index.html">
-        <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo" class="d-inline-block align-top">
-      </a>
+            <!-- Centered Logo -->
+            <a class="logo mx-auto" href="index.html">
+                <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo" class="d-inline-block align-top">
+            </a>
 
-      <!-- Navbar Links on the Right -->
-      <div class="d-flex justify-content-end">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="aboutPage.html">about</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="perpScreening.html">am I a perpetrator</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <!-- Navbar Links on the Right -->
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutPage.html">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perpScreening.html">am I a perpetrator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <p><strong>Tic Tac Toe</strong><br>
       Click on a box to start
     </p>
     <div id="board" class="board"></div>
     <div class="button-container">
         <button onclick="playAgain()">Play Again</button>
-        <button onclick="nextPage()">Next Page</button>
+        <button onclick="nextPage()">Continue</button>
     </div>
 
     <script>
@@ -245,7 +264,7 @@
 
         // Placeholder function for next page functionality
         function nextPage() {
-            alert('Next page functionality goes here');
+            window.location.href='Agape.html';
         }
     </script>
 </body>
