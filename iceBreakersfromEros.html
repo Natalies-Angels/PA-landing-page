@@ -105,8 +105,18 @@
       color: #4CAF50;
       display: none;
     }
-    @media only screen and (max-width: 600px) {
-    /* Adjust styles for screens with a maximum width of 600px (you can modify this value) */
+    button {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0; /* Set box-shadow to 0 */
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgb(199, 197, 197);
+}
+    @media only screen and (max-width: 500px) {
     .word-search-letter {
       width: 20px;
       height: 20px;
@@ -123,8 +133,6 @@
     {
       margin-top: 200px;
     }
-  }
-  @media only screen and (max-width: 500px) {
     
     .logo {
         transform: none;
@@ -143,7 +151,8 @@
         flex-direction: column;
         
     }
-}
+  }
+
   </style>
   <title>Word Search Game</title>
 </head>
@@ -196,7 +205,9 @@
         <!-- Word list will be generated here -->
       </ul>
     </div>
+
     <div id="celebration" class="celebration">Congratulations! You found all words!</div>
+    <button onclick="SkipToEros()">Skip</button>
   </div>
 
   <script>
@@ -363,6 +374,11 @@
         clearInterval(timerInterval);
         timerElement.textContent = 'Time is up!';
       }
+    }
+    
+    function SkipToEros() {
+      // Add logic to navigate to the next page
+      window.location.href = 'Eros.html';
     }
   </script>
 </body>
