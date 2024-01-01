@@ -75,13 +75,7 @@ i
         flex-direction: row; /* Change to a column layout on smaller screens */
         align-items: center; /* Center items horizontally on smaller screens */
     }
-     body{
-        font-size: 14px;
-     }
-     i{
-        padding: 15px;
-     }
-
+    
      .contact-container
      {
         text-align: center; /* Center the text within the p tag */
@@ -94,5 +88,22 @@ i
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 10px;
+    }
+    .logo {
+        transform: none;
+        left: 35%;
+    }
+
+    .logo img {
+        width: 40%;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        
     }
 }
