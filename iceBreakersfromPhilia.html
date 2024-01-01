@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,97 +17,70 @@
       color: #fff; /* Set text color to white */
     }
 
-    #puzzle-container {
-      display: grid;
-      grid-template-columns: repeat(3, 150px); /* Adjust based on your needs */
-      gap: 10px; /* Adjust based on your needs */
-      justify-content: center; /* Center the grid */
-      padding: 50px; /* Add padding to the puzzle container */
-      margin-top: 20px; /* Adjusted margin-top */
-    }
-
-    .puzzle-piece {
-      width: 150px; /* Adjust based on your needs */
-      height: 150px; /* Adjust based on your needs */
-      background-size: 450px 450px; /* Set background size to fit 3x3 grid */
-      border: 1px solid #ddd; /* Adjust based on your needs */
-      cursor: grab; /* Add grab cursor */
-      transition: transform 0.5s ease; /* Add transition for smooth distortion */
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: space-between; /* Adjusted justify-content */
-      margin-left: 50px; /* Added margin-left */
-      margin-right: 50px; /* Added margin-right */
-      margin-top: 10px; /* Adjusted margin-top */
-    }
-
-    .shuffle-btn,
-    .reveal-btn {
-      background-color: red; /* Adjust button colors as needed */
-      padding: 10px;
-      color: white;
-      width: 100px; /* Adjust button width as needed */
-    }
-
-    .reveal-btn {
-      background-color: green; /* Adjust button color for reveal button */
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      position: relative;
-    }
-
-    .close-btn {
-      background-color: red; /* Change color as needed */
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
+    .logo {
       position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-
-    p {
-      text-align: center;
-      margin-top: 20px; /* Add margin to the paragraph */
-    }
-
-    a {
-      color: #3498db; /* Link color */
-      text-decoration: none; /* Remove underline */
-    }
-
-    a:hover {
-      text-decoration: underline; /* Add underline on hover */
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
     }
 
     .logo img {
       width: 60px; /* Adjust the width as needed */
       height: auto; /* Maintain the aspect ratio */
     }
-  </style>
-  <title>Puzzle Game</title>
-</head>
 
+    #board {
+      margin: auto;
+      margin-top: 150px;
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid white;
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .winner {
+      text-decoration: line-through;
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Increase or decrease this value as needed */
+  }
+
+  button {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0; /* Set box-shadow to 0 */
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px; /* Increase or decrease this value as needed */
+  color: rgb(199, 197, 197);
+}
+
+  </style>
+  <title>Tic Tac Toe</title>
+</head>
 <body>
+  <div id="board"></div>
+  <div class="button-container">
+    <button onclick="playAgain()">Play Again</button>
+    <button onclick="nextPage()">Next Page</button>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
     <div class="container-fluid">
       <!-- Navbar Links on the Left -->
@@ -141,118 +113,147 @@
       </div>
     </div>
   </nav>
-
-  <!-- Puzzle Container -->
-  <div id="puzzle-container"></div>
-
-  <!-- Button Container -->
-  <div class="button-container">
-    <!-- Shuffle Button -->
-    <button class="shuffle-btn" onclick="distortPuzzle()">Shuffle</button>
-    <!-- Reveal Original Button -->
-    <button class="reveal-btn" onclick="revealOriginal()">Reveal Original</button>
-  </div>
-
-  <!-- Reveal Original Modal -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeReveal()">X</button>
-      <img src="Group 31 (2).png" alt="Original" style="width: 100%; height: auto;">
-    </div>
-  </div>
-
   <script>
-    // Number of rows and columns in the puzzle grid
-    const numRows = 3;
-    const numCols = 3;
+    const board = document.getElementById('board');
+    const cells = Array.from({ length: 9 }, (_, index) => createCell(index));
+    let currentPlayer = 'X';
+    let gameOver = false;
 
-    // Function to create puzzle pieces
-    function createPuzzlePieces() {
-      const container = document.getElementById('puzzle-container');
+    initializeBoard();
 
-      for (let i = 0; i < numRows * numCols; i++) {
-        const piece = document.createElement('div');
-        piece.classList.add('puzzle-piece');
-        piece.style.backgroundImage = `url('Group 31 (2).png')`;
-        piece.style.backgroundPosition = `-${i % numCols * 150}px -${Math.floor(i / numCols) * 150}px`;
-        piece.setAttribute('draggable', true);
-
-        // Add drag events
-        piece.addEventListener('dragstart', dragStart);
-        piece.addEventListener('dragover', dragOver);
-        piece.addEventListener('drop', drop);
-
-        container.appendChild(piece);
+    function initializeBoard() {
+      for (const cell of cells) {
+        board.appendChild(cell);
       }
     }
 
-    // Function to distort puzzle pieces
-    function distortPuzzle() {
-      const pieces = document.querySelectorAll('.puzzle-piece');
-      const shuffledPieces = Array.from(pieces).sort(() => Math.random() - 0.5);
-      const container = document.getElementById('puzzle-container');
-
-      container.innerHTML = ''; // Clear the container
-
-      shuffledPieces.forEach(piece => {
-        piece.style.transform = 'none'; // Reset the transform
-        container.appendChild(piece);
-      });
+    function createCell(index) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.dataset.index = index;
+      cell.addEventListener('click', handleCellClick);
+      return cell;
     }
 
-    // Function to reveal original image
-    function revealOriginal() {
-      const modal = document.getElementById('myModal');
-      modal.style.display = 'flex';
+    async function handleCellClick() {
+      if (gameOver || this.textContent !== '') return;
+
+      const index = this.dataset.index;
+
+      // Player's move
+      makeMove(index, currentPlayer);
+
+      // Check for a winner or a draw after player's move
+      if (checkWin('X')) {
+        applyWinnerStyle('X');
+        alert('You win!');
+        gameOver = true;
+        return;
+      } else if (checkDraw()) {
+        alert('It\'s a draw!');
+        gameOver = true;
+        return;
+      }
+
+      // Wait for a moment before the computer's move
+      await delay(500);
+
+      // Computer's move
+      const emptyCells = cells.filter(cell => cell.textContent === '');
+      const computerMove = getComputerMove(emptyCells);
+      makeMove(computerMove, 'O');
+
+      // Check for a winner or a draw after computer's move
+      if (checkWin('O')) {
+        applyWinnerStyle('O');
+        alert('Computer wins!');
+        gameOver = true;
+        return;
+      } else if (checkDraw()) {
+        alert('It\'s a draw!');
+        gameOver = true;
+      }
     }
 
-    // Function to close reveal modal
-    function closeReveal() {
-      const modal = document.getElementById('myModal');
-      modal.style.display = 'none';
+    function makeMove(index, player) {
+      cells[index].textContent = player;
+      currentPlayer = player === 'X' ? 'O' : 'X';
     }
 
-    let draggedElement = null;
-
-    // Drag event handlers
-    function dragStart(e) {
-      draggedElement = e.target;
-      e.dataTransfer.setData('text/plain', ''); // Set data to allow drag
+    function getComputerMove(emptyCells) {
+      // Simple strategy: Randomly choose an empty cell
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      return emptyCells[randomIndex].dataset.index;
     }
 
-    function dragOver(e) {
-      e.preventDefault();
+    function checkWin(player) {
+      // Check rows, columns, and diagonals
+      const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+      ];
+
+      return winPatterns.some(pattern =>
+        pattern.every(index => cells[index].textContent === player)
+      );
     }
 
-    function drop(e) {
-      e.preventDefault();
-      if (draggedElement) {
-        const target = e.target;
+    function checkDraw() {
+      return cells.every(cell => cell.textContent !== '');
+    }
 
-        if (target.classList.contains('puzzle-piece')) {
-          const parent = target.parentElement;
-          const nextElement = target.nextSibling;
+    function applyWinnerStyle(player) {
+      const winningIndexes = getWinningIndexes(player);
+      for (const index of winningIndexes) {
+        cells[index].classList.add('winner');
+      }
+    }
 
-          if (nextElement) {
-            parent.insertBefore(draggedElement, nextElement);
-          } else {
-            parent.appendChild(draggedElement);
-          }
-        } else if (target.id === 'puzzle-container') {
-          const container = document.getElementById('puzzle-container');
-          container.appendChild(draggedElement);
+    function getWinningIndexes(player) {
+      const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+      ];
+
+      for (const pattern of winPatterns) {
+        if (pattern.every(index => cells[index].textContent === player)) {
+          return pattern;
         }
+      }
 
-        draggedElement = null;
+      return [];
+    }
+
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function playAgain() {
+      resetBoard();
+      gameOver = false;
+      removeWinnerStyle();
+    }
+
+    function resetBoard() {
+      for (const cell of cells) {
+        cell.textContent = '';
+        cell.classList.remove('winner');
+      }
+      currentPlayer = 'X';
+    }
+
+    function removeWinnerStyle() {
+      for (const cell of cells) {
+        cell.classList.remove('winner');
       }
     }
 
-    // Initialize the puzzle
-    createPuzzlePieces();
+    function nextPage() {
+      // Add logic to navigate to the next page
+      alert('Navigating to the next page');
+    }
   </script>
-  <p>
-    <a href="Storge.html">Next</a>
-  </p>
 </body>
-
 </html>
