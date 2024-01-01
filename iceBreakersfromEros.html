@@ -17,7 +17,6 @@
       background-color: #1A261E; /* Set the background color to #1A261E */
       color: #fff; /* Set text color to white */
     }
-
     .logo {
       position: absolute;
       top: 0;
@@ -106,6 +105,25 @@
       color: #4CAF50;
       display: none;
     }
+    @media only screen and (max-width: 600px) {
+    /* Adjust styles for screens with a maximum width of 600px (you can modify this value) */
+    .word-search-letter {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px; /* Adjust the font size as needed */
+    }
+    body{
+      font-size: 12px;
+    }
+    .timer{
+      font-size: 12px;
+    }
+    .word-search-container
+    {
+      margin-top: 100px;
+    }
+  }
   </style>
   <title>Word Search Game</title>
 </head>
@@ -145,7 +163,7 @@
   </nav>
 
   <div class="word-search-container">
-    <h3 id="timer">How many words can you find before time runs out?</h3>
+    <h3 id="timer"></h3>
     <div class="timer-container">
       <p id="timer">How many words can you find before time runs out?</p>
     <!-- </div> -->
@@ -193,7 +211,7 @@
       generateWordList();
 
       // Start the timer
-      timerInterval = setInterval(updateTimer, 1000);
+      // timerInterval = setInterval(updateTimer, 1000);
     }
 
      // Function to update the timer
