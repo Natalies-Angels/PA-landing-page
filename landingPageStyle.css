@@ -37,16 +37,6 @@ nav {
     padding-top: 40px;
 }
 
-/* hr {
-    border-top: 3px solid white;
-}
-
-hr.my-4 {
-    margin-top: 0;
-} */
-
-
-
 footer {
     text-align: left;
     background-color: black;
@@ -77,8 +67,9 @@ footer {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
 .who-we-are p {
-   color: white;
+    color: white;
 }
 
 .who-we-are-container {
@@ -92,17 +83,18 @@ footer {
     box-sizing: border-box;
 }
 
-
 .nav-and-cta {
     background-color: black;
     padding-top: 5px;
     padding-bottom: 150px;
     margin-bottom: -165px;
 }
-.white-mission, .white-vision
-{
+
+.white-mission,
+.white-vision {
     color: black;
 }
+
 .cta-paragraph {
     display: flex;
     flex-direction: column;
@@ -138,14 +130,16 @@ footer {
     margin-left: 5px;
 }
 
-.short-sentence {
-    text-align: left;
-    margin-top: 200px;
-    margin-bottom: 50px;
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px; /* Adjust the top margin for all screens */
 }
 
 .cta-btn {
-    margin-top: 20px;
+    margin-top: 10px; /* Adjust the top margin */
     border: 2px solid rgb(11, 241, 11);
     background-color: transparent;
     text-align: center;
@@ -208,3 +202,81 @@ footer {
         grid-template-columns: 1fr 2fr;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .logo {
+        transform: none;
+        left: 35%;
+    }
+
+    .logo img {
+        width: 40%;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        
+    }
+
+    .nav-and-cta {
+        padding-bottom: 200px;
+        padding-top: 50px;
+    }
+
+    .cta-image {
+        margin: 0;
+        padding-top: 10px;
+        margin-bottom: 10px; /* Adjust the bottom margin */
+    }
+
+    .cta-paragraph {
+        margin-right: 0;
+        margin-top: 10px; /* Adjust the top margin */
+    }
+
+    .cta-btn {
+        margin-top: 10px; /* Adjust the top margin */
+        margin-right: 0;
+    }
+    .cta-content
+    {
+        margin-top: 20px;
+    }
+
+    .custom2-container {
+        padding: 20px;
+    }
+
+    .who-we-are-container {
+        padding-top: 0;
+    }
+
+    .image-container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .image1,
+    .image2,
+    .image3 {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+

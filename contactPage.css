@@ -87,6 +87,7 @@ i
         text-align: center; /* Center the text within the p tag */
         margin-left: auto;
         margin-right: auto;
+        padding: 10px;
      }
      .footer {
         /* padding: 10px; Adjust padding for small screens */

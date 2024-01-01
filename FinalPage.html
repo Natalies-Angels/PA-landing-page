@@ -26,34 +26,18 @@
         }
 
         .feedback-container {
-            text-align: center;
+            text-align: justify;
             margin-top: 150px;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
-
-        /* Added styles for the star rating */
-        .star-rating {
-            display: inline-block;
-            font-size: 25px;
-            cursor: pointer;
+        .feedback-container h2
+        {
+            text-align: center;
+            padding-bottom: 20px;
         }
 
-        .star-rating input {
-            display: none;
-        }
-
-        .star-rating label {
-            color: #ffa500; /* Set star color */
-            padding: 5px;
-            margin: 0;
-            transition: color 0.3s;
-        }
-
-        .star-rating input:checked + label {
-            color: #f8d120; /* Set selected star color */
-        }
     </style>
 </head>
 <body>
@@ -89,11 +73,16 @@
 
     <!-- Feedback/Ratings Section with Star Rating -->
     <div class="container feedback-container">
-        <h2>How was your experience?</h2>
-        <p>We would love to hear your feedback or ratings. Please let us know how we can improve.</p>
+        <h2>Thank You!</h2>
+        <p>Thank you for your valuable contributions to our data collection questionnaire on Intimate Partner Violence (IPV) within the "Love & Rage" framework. Your candid responses provide valuable insights into the complexities of perpetration and the diverse experiences surrounding IPV. <br><br>
+
+            As we conclude this phase of data collection, your input becomes a crucial component in advancing our understanding and awareness of these issues. We sincerely appreciate your participation in this vital research, and your anonymity will be preserved. <br><br>
+            
+            Moving forward, we anticipate further analysis and collaborative efforts to develop impactful solutions. Your continued involvement is instrumental in creating a safer and more empathetic space for all.
+            </p>
 
         <!-- Star Rating -->
-        <div class="star-rating">
+        <!-- <div class="star-rating">
             <input type="radio" id="star5" name="rating" value="5" />
             <label for="star5">&#9733;</label>
             <input type="radio" id="star4" name="rating" value="4" />
@@ -104,7 +93,7 @@
             <label for="star2">&#9733;</label>
             <input type="radio" id="star1" name="rating" value="1" />
             <label for="star1">&#9733;</label>
-        </div>
+        </div> -->
         <!-- End of Star Rating -->
 
         <!-- Add your feedback form or additional content here -->
