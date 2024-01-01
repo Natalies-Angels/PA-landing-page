@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -15,55 +15,35 @@
       margin: 0;
       background-color: #1A261E; /* Set the background color to #1A261E */
       color: #fff; /* Set text color to white */
-    }
+        }
 
-    .logo {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            margin: auto;
+        }
 
-    .logo img {
-      width: 60px; /* Adjust the width as needed */
-      height: auto; /* Maintain the aspect ratio */
-    }
+        .cell {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            margin: auto;
+        }
 
-    .cell {
-      width: 100px;
-      height: 100px;
-      border: 1px solid white;
-      font-size: 2em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .winner {
-      text-decoration: line-through;
-    }
-
-    #board {
-  margin: auto;
-  margin-top: 80px; /* Adjust the top margin as needed */
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  gap: 5px;
-  }
-
-.button-container {
-  margin-top: -150px; /* Increase or decrease this value as needed */
-  display: flex;
-  justify-content: center;
-  margin-top: 10px; /* Increase or decrease this value as needed */
-  margin-top: -150px; /* Increase or decrease this value as needed */
-}
-
-  button {
-  background-color: transparent;
+        button {
+          background-color: transparent;
   border: 1px solid white;
   border-radius: 8px;
   box-shadow: 0; /* Set box-shadow to 0 */
@@ -72,8 +52,48 @@
   font-size: 16px;
   cursor: pointer;
   color: rgb(199, 197, 197);
-}
-@media only screen and (max-width: 500px) {
+        }
+
+        .winning-cell {
+            background-color: yellow;
+        }
+        .logo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    p
+    {
+      margin: auto;
+      margin-top: 150px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: larger;
+    }
+
+    .logo img {
+      width: 60px; /* Adjust the width as needed */
+      height: auto; /* Maintain the aspect ratio */
+    }
+    @media only screen and (max-width: 500px) {
+    .word-search-letter {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px; /* Adjust the font size as needed */
+    }
+    body{
+      font-size: 12px;
+    }
+    .timer{
+      font-size: 12px;
+    }
+    .word-search-container
+    {
+      margin-top: 200px;
+    }
     
     .logo {
         transform: none;
@@ -92,13 +112,11 @@
         flex-direction: column;
         
     }
-}
-
-  </style>
-  <title>Tic Tac Toe</title>
+  }
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
     <div class="container-fluid">
       <!-- Navbar Links on the Left -->
       <div class="d-flex justify-content-start">
@@ -124,159 +142,111 @@
             <a class="nav-link" href="aboutPage.html">about</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="perpScreening.html">am I a perpetrator?</a>
+            <a class="nav-link" href="perpScreening.html">am I a perpetrator</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div id="board"></div>
-  <div class="button-container">
-    <button onclick="playAgain()">Play Again</button>
-    <button onclick="nextPage()">Next Page</button>
-  </div>
-  
-  <script>
-    const board = document.getElementById('board');
-    const cells = Array.from({ length: 9 }, (_, index) => createCell(index));
-    let currentPlayer = 'X';
-    let gameOver = false;
+    <p><strong>Tic Tac Toe</strong><br>
+      Click on a box to start
+    </p>
+    <div id="board" class="board"></div>
+    <div class="button-container">
+        <button onclick="playAgain()">Play Again</button>
+        <button onclick="nextPage()">Next Page</button>
+    </div>
 
-    initializeBoard();
+    <script>
+        const boardElement = document.getElementById('board');
+        const cells = [];
+        let currentPlayer = 'X';
+        let gameOver = false;
 
-    function initializeBoard() {
-      for (const cell of cells) {
-        board.appendChild(cell);
-      }
-    }
-
-    function createCell(index) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      cell.dataset.index = index;
-      cell.addEventListener('click', handleCellClick);
-      return cell;
-    }
-
-    async function handleCellClick() {
-      if (gameOver || this.textContent !== '') return;
-
-      const index = this.dataset.index;
-
-      // Player's move
-      makeMove(index, currentPlayer);
-
-      // Check for a winner or a draw after player's move
-      if (checkWin('X')) {
-        applyWinnerStyle('X');
-        alert('You win!');
-        gameOver = true;
-        return;
-      } else if (checkDraw()) {
-        alert('It\'s a draw!');
-        gameOver = true;
-        return;
-      }
-
-      // Wait for a moment before the computer's move
-      await delay(500);
-
-      // Computer's move
-      const emptyCells = cells.filter(cell => cell.textContent === '');
-      const computerMove = getComputerMove(emptyCells);
-      makeMove(computerMove, 'O');
-
-      // Check for a winner or a draw after computer's move
-      if (checkWin('O')) {
-        applyWinnerStyle('O');
-        alert('Computer wins!');
-        gameOver = true;
-        return;
-      } else if (checkDraw()) {
-        alert('It\'s a draw!');
-        gameOver = true;
-      }
-    }
-
-    function makeMove(index, player) {
-      cells[index].textContent = player;
-      currentPlayer = player === 'X' ? 'O' : 'X';
-    }
-
-    function getComputerMove(emptyCells) {
-      // Simple strategy: Randomly choose an empty cell
-      const randomIndex = Math.floor(Math.random() * emptyCells.length);
-      return emptyCells[randomIndex].dataset.index;
-    }
-
-    function checkWin(player) {
-      // Check rows, columns, and diagonals
-      const winPatterns = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6]             // Diagonals
-      ];
-
-      return winPatterns.some(pattern =>
-        pattern.every(index => cells[index].textContent === player)
-      );
-    }
-
-    function checkDraw() {
-      return cells.every(cell => cell.textContent !== '');
-    }
-
-    function applyWinnerStyle(player) {
-      const winningIndexes = getWinningIndexes(player);
-      for (const index of winningIndexes) {
-        cells[index].classList.add('winner');
-      }
-    }
-
-    function getWinningIndexes(player) {
-      const winPatterns = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6]             // Diagonals
-      ];
-
-      for (const pattern of winPatterns) {
-        if (pattern.every(index => cells[index].textContent === player)) {
-          return pattern;
+        // Initialize the board
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.row = i;
+                cell.dataset.col = j;
+                cell.addEventListener('click', () => cellClick(i, j));
+                cells.push(cell);
+                boardElement.appendChild(cell);
+            }
         }
-      }
 
-      return [];
-    }
+        // Function to handle cell click
+        function cellClick(row, col) {
+            if (!gameOver && !cells[row * 3 + col].textContent) {
+                cells[row * 3 + col].textContent = currentPlayer;
+                checkWinner();
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                setTimeout(computerMove, 1000); // Delay computer's response
+            }
+        }
 
-    function delay(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
+        // Function to make a random computer move
+        function computerMove() {
+            if (!gameOver) {
+                let emptyCells = cells.filter(cell => !cell.textContent);
+                if (emptyCells.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+                    const randomCell = emptyCells[randomIndex];
+                    randomCell.textContent = currentPlayer;
+                    checkWinner();
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
 
-    function playAgain() {
-      resetBoard();
-      gameOver = false;
-      removeWinnerStyle();
-    }
+        // Function to check for a winner
+        function checkWinner() {
+            const winningCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]             // Diagonals
+            ];
 
-    function resetBoard() {
-      for (const cell of cells) {
-        cell.textContent = '';
-        cell.classList.remove('winner');
-      }
-      currentPlayer = 'X';
-    }
+            for (const combination of winningCombinations) {
+                const [a, b, c] = combination;
+                if (cells[a].textContent && cells[a].textContent === cells[b].textContent && cells[a].textContent === cells[c].textContent) {
+                    highlightWinner(combination);
+                    gameOver = true;
+                    setTimeout(() => {
+                        alert(`${currentPlayer === 'X' ? 'Computer' : 'You'} won!`);
+                    }, 100);
+                    return;
+                }
+            }
 
-    function removeWinnerStyle() {
-      for (const cell of cells) {
-        cell.classList.remove('winner');
-      }
-    }
+            if (cells.every(cell => cell.textContent)) {
+                setTimeout(() => {
+                    alert("It's a tie!");
+                }, 100);
+                gameOver = true;
+            }
+        }
 
-    function nextPage() {
-      // Add logic to navigate to the next page
-      window.location.href = 'Agape.html';
-    }
-  </script>
+        // Function to highlight winning cells
+        function highlightWinner(combination) {
+            combination.forEach(index => cells[index].classList.add('winning-cell'));
+        }
+
+        // Function to reset the game
+        function playAgain() {
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.classList.remove('winning-cell');
+            });
+            currentPlayer = 'X';
+            gameOver = false;
+        }
+
+        // Placeholder function for next page functionality
+        function nextPage() {
+            alert('Next page functionality goes here');
+        }
+    </script>
 </body>
 </html>
