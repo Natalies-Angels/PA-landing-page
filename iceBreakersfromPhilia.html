@@ -30,13 +30,6 @@
       height: auto; /* Maintain the aspect ratio */
     }
 
-    #board {
-      margin: auto;
-      margin-top: 150px;
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      gap: 5px;
-    }
 
     .cell {
       width: 100px;
@@ -53,11 +46,21 @@
       text-decoration: line-through;
     }
 
-    .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px; /* Increase or decrease this value as needed */
+    #board {
+  margin: auto;
+  margin-top: 80px; /* Adjust the top margin as needed */
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
   }
+
+.button-container {
+  margin-top: -150px; /* Increase or decrease this value as needed */
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Increase or decrease this value as needed */
+  margin-top: -150px; /* Increase or decrease this value as needed */
+}
 
   button {
   background-color: transparent;
@@ -68,7 +71,6 @@
   padding: 8px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 10px; /* Increase or decrease this value as needed */
   color: rgb(199, 197, 197);
 }
 
@@ -76,12 +78,7 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  <div id="board"></div>
-  <div class="button-container">
-    <button onclick="playAgain()">Play Again</button>
-    <button onclick="nextPage()">Next Page</button>
-  </div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
     <div class="container-fluid">
       <!-- Navbar Links on the Left -->
       <div class="d-flex justify-content-start">
@@ -113,6 +110,12 @@
       </div>
     </div>
   </nav>
+  <div id="board"></div>
+  <div class="button-container">
+    <button onclick="playAgain()">Play Again</button>
+    <button onclick="nextPage()">Next Page</button>
+  </div>
+  
   <script>
     const board = document.getElementById('board');
     const cells = Array.from({ length: 9 }, (_, index) => createCell(index));
@@ -252,7 +255,7 @@
 
     function nextPage() {
       // Add logic to navigate to the next page
-      alert('Navigating to the next page');
+      window.location.href = 'Agape.html';
     }
   </script>
 </body>
