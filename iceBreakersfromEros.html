@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,47 +18,6 @@
       color: #fff; /* Set text color to white */
     }
 
-    #popup-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    #word-search {
-      display: grid;
-      grid-template-columns: repeat(12, 40px); /* Adjust based on your needs for a wider word search */
-      gap: 4px; /* Adjust based on your needs */
-      justify-content: center; /* Center the grid */
-      position: relative;
-      margin-bottom: 20px; /* Add margin at the bottom */
-    }
-
-    .letter {
-      width: 40px; /* Adjust based on your needs */
-      height: 40px; /* Adjust based on your needs */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #ddd; /* Adjust based on your needs */
-      font-size: 16px; /* Adjust based on your needs */
-      cursor: pointer;
-    }
-
-    .highlight {
-      background-color: rgb(172, 49, 49); /* Adjust based on your needs */
-      color: #fff; /* Adjust based on your needs */
-    }
-
-    button {
-      padding: 10px;
-      background-color: rgb(172, 49, 49); /* Adjust based on your needs */
-      color: #fff; /* Adjust based on your needs */
-      border: none;
-      cursor: pointer;
-      border-radius: 10px;
-    }
-
     .logo {
       position: absolute;
       top: 0;
@@ -71,116 +31,302 @@
       height: auto; /* Maintain the aspect ratio */
     }
 
-    .footer.container {
-      text-align: left;
-      padding-top: 50px;
-      font-size: 16px;
-      margin-left: auto;
-      margin-right: auto;
-      
+    .word-search-container {
+      margin-top: 100px; /* Adjust the margin as needed */
+      text-align: center;
     }
 
+    .word-search {
+      display: inline-block;
+      border: 1px solid #fff;
+      padding: 10px;
+      background-color: transparent;
+      user-select: none; /* Disable text selection */
+    }
+
+    .word-search-row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5px;
+    }
+
+    .word-search-letter {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      margin: 0 5px;
+      border: 1px solid #fff;
+      cursor: pointer;
+      transition: background-color 0.3s; /* Add smooth transition */
+    }
+
+    .word-list-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .word-list {
+      margin-top: 20px;
+      font-size: 1.2em;
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .word-list-item {
+      margin-bottom: 5px;
+    }
+
+    .word-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .highlighted {
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: line-through;
+    }
+
+    .timer-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .celebration {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #4CAF50;
+      display: none;
+    }
   </style>
   <title>Word Search Game</title>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
     <div class="container-fluid">
-        <!-- Navbar Links on the Left -->
-        <div class="d-flex justify-content-start">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contactPage.html">Contact</a>
-                </li>
-            </ul>
-        </div>
+      <!-- Navbar Links on the Left -->
+      <div class="d-flex justify-content-start">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactPage.html">Contact</a>
+          </li>
+        </ul>
+      </div>
 
-        <!-- Centered Logo -->
-        <a class="logo mx-auto" href="index.html">
-            <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
-        </a>
+      <!-- Centered Logo -->
+      <a class="logo mx-auto" href="index.html">
+        <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo" class="d-inline-block align-top">
+      </a>
 
-        <!-- Navbar Links on the Right -->
-        <div class="d-flex justify-content-end">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Am I a perpetrator</a>
-                </li>
-            </ul>
-        </div>
+      <!-- Navbar Links on the Right -->
+      <div class="d-flex justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="aboutPage.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="perpScreening.html">Am I a perpetrator</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-  <!-- Short sentence above the word search -->
-  <div>
-    <p style="text-align: center; font-size: 18px; margin-bottom: 20px; margin-top: 120px; color: #ccc8c8;">Can you find the 15 hidden words?</p>
-  </div>
-
-  <!-- Popup Container for Word Search -->
-  <div id="popup-container">
-    <div id="word-search"></div>
-    <button onclick="closeWordSearch()">Close</button>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer col-md-12">
-    <div class="container">
-      <p>© 2023 perpanonymous.org. All rights reserved.</p>
+  <div class="word-search-container">
+    <h3 id="timer">How many words can you find before time runs out?</h3>
+    <div class="timer-container">
+      <p id="timer">How many words can you find before time runs out?</p>
+    <!-- </div> -->
+    <div id="wordSearch" class="word-search">
+      <!-- Word search grid will be generated here -->
     </div>
-  </footer>
+    <div class="word-list-container">
+      
+      <ul id="wordList" class="word-list">
+        <!-- Word list will be generated here -->
+      </ul>
+    </div>
+    <div id="celebration" class="celebration">Congratulations! You found all words!</div>
+  </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      openWordSearch();
-    });
+    const timerElement = document.getElementById('timer');
+    const wordListElement = document.getElementById('wordList');
+    const celebrationElement = document.getElementById('celebration');
 
-    function openWordSearch() {
-      const letters = [
-        'W', 'I', 'S', 'D', 'O', 'M', 'A', 'A',
-        'M', 'R', 'E', 'M', 'R', 'S', 'E', 'C',
-        'F', 'O', 'R', 'G', 'I', 'V', 'E', 'C',
-        'O', 'S', 'S', 'A', 'C', 'E', 'C', 'E',
-        'R', 'N', 'E', 'C', 'E', 'P', 'T', 'P',
-        'G', 'C', 'O', 'M', 'P', 'A', 'S', 'T',
-        'I', 'W', 'S', 'L', 'O', 'V', 'E', 'A',
-        'V', 'O', 'I', 'S', 'E', 'A', 'P', 'N',
-        'E', 'O', 'R', 'S', 'I', 'V', 'E', 'C',
-        'N', 'S', 'S', 'A', 'D', 'E', 'C', 'E',
-        'E', 'N', 'E', 'C', 'E', 'O', 'T', 'A',
-        'S', 'C', 'O', 'M', 'P', 'A', 'M', 'S'
-      ];
+    let seconds = 60;
+    let timerInterval;
 
-      initializeWordSearch(letters);
-      document.getElementById('popup-container').style.display = 'flex';
+    // Hardcoded word search grid and words
+    const wordSearchGrid = [
+      ['W', 'O', 'R', 'D', 'S', 'E', 'A', 'R', 'C', 'H'],
+      ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+      ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
+      ['U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'],
+      ['E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
+      ['O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X'],
+      ['Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+      ['I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
+      ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B'],
+      ['C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+    ];
+
+    const wordsToFind = [''];
+
+    // Initialize the game
+    initializeGame();
+
+    function initializeGame() {
+      generateWordSearch();
+      generateWordList();
+
+      // Start the timer
+      timerInterval = setInterval(updateTimer, 1000);
     }
 
-    function initializeWordSearch(letters) {
-      const wordSearchContainer = document.getElementById('word-search');
-      wordSearchContainer.innerHTML = '';
+     // Function to update the timer
+  function updateTimer() {
+    seconds--;
 
-      for (let i = 0; i < letters.length; i++) {
-        const letter = document.createElement('div');
-        letter.className = 'letter';
-        letter.textContent = letters[i];
-        letter.addEventListener('click', function () {
-          letter.classList.toggle('highlight');
+    if (seconds <= 0) {
+      // Stop the timer
+      clearInterval(timerInterval);
+      timerElement.textContent = 'Time is up!';
+
+      // Disable letter clicks
+      disableLetterClicks();
+
+      // Open "philia.html" after a 3-second delay
+      setTimeout(() => {
+        window.location.href = 'Philia.html';
+      }, 3000);
+    } else {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+
+      timerElement.textContent = `Time: ${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }
+  }
+
+    // Function to generate the word search grid
+    function generateWordSearch() {
+      const wordSearch = document.getElementById('wordSearch');
+      wordSearch.innerHTML = '';
+
+      wordSearchGrid.forEach((row, i) => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'word-search-row';
+
+        row.forEach((letter, j) => {
+          const letterDiv = document.createElement('div');
+          letterDiv.textContent = letter;
+          letterDiv.className = 'word-search-letter';
+          letterDiv.dataset.row = i;
+          letterDiv.dataset.col = j;
+          letterDiv.addEventListener('click', () => handleLetterClick(letterDiv, i, j));
+          rowDiv.appendChild(letterDiv);
         });
-        wordSearchContainer.appendChild(letter);
+
+        wordSearch.appendChild(rowDiv);
+      });
+    }
+
+    // Function to handle letter click event
+    function handleLetterClick(letterDiv, row, col) {
+      if (!letterDiv.classList.contains('highlighted')) {
+        letterDiv.classList.add('highlighted');
+        checkWordFound(row, col);
+      } else {
+        letterDiv.classList.remove('highlighted');
       }
     }
 
-    function closeWordSearch() {
-  // Redirect to philia.html
-  window.location.href = 'Philia.html';
-}
+    // Function to disable letter clicks
+    function disableLetterClicks() {
+      const wordSearchLetters = document.getElementsByClassName('word-search-letter');
+      Array.from(wordSearchLetters).forEach(letterDiv => {
+        letterDiv.style.pointerEvents = 'none';
+      });
+    }
 
+    // Function to generate the word list
+    function generateWordList() {
+      wordListElement.innerHTML = '';
+
+      wordsToFind.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        listItem.className = 'word-list-item';
+        wordListElement.appendChild(listItem);
+      });
+    }
+
+    // Function to check if the word exists in the grid
+    function checkWord(word, row, col) {
+      const directions = [
+        { x: 1, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+        { x: -1, y: 0 },
+        { x: 0, y: -1 },
+        { x: -1, y: -1 },
+        { x: 1, y: -1 },
+        { x: -1, y: 1 }
+      ];
+
+      for (const dir of directions) {
+        let found = true;
+        for (let i = 1; i < word.length; i++) {
+          const newRow = row + i * dir.y;
+          const newCol = col + i * dir.x;
+
+          if (
+            newRow < 0 || newRow >= wordSearchGrid.length ||
+            newCol < 0 || newCol >= wordSearchGrid[0].length ||
+            wordSearchGrid[newRow][newCol] !== word[i]
+          ) {
+            found = false;
+            break;
+          }
+        }
+        if (found) return true;
+      }
+
+      return false;
+    }
+
+    // Function to check if all words are found
+    function checkWordFound(row, col) {
+      const wordListItems = document.getElementsByClassName('word-list-item');
+      const highlightedLetters = document.getElementsByClassName('highlighted');
+
+      Array.from(wordListItems).forEach((listItem, index) => {
+        const word = wordsToFind[index];
+        const found = checkWord(word, row, col);
+
+        if (found) {
+          listItem.classList.add('word-found');
+        }
+      });
+
+      if (highlightedLetters.length === wordSearchGrid.length * wordSearchGrid[0].length) {
+        clearInterval(timerInterval);
+        timerElement.textContent = 'Time is up!';
+      }
+    }
   </script>
-  <!-- <a href="Philia.html">Philia</a> -->
 </body>
+
 </html>
