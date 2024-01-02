@@ -8,8 +8,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript">var submitted</script>
-	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='loginLinktoAgape.html';}"></iframe>
+ 	<script type="text/javascript">var submitted</script>
+	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='loginLinktoAgape.html';}"></iframe> 
   <style>
     /* Add custom styles here */
     body {
@@ -54,26 +54,6 @@
       width: 60px; /* Adjust the width as needed */
       height: auto; /* Maintain the aspect ratio */
     }
-	@media only screen and (max-width: 500px) {
-    
-    .logo {
-        transform: none;
-        left: 35%;
-    }
-
-    .logo img {
-        width: 40%;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    .navbar {
-        flex-direction: column;
-        
-    }
-}
   </style>
 </head>
 <body>
@@ -83,10 +63,10 @@
           <div class="d-flex justify-content-start">
               <ul class="navbar-nav">
                   <li class="nav-item">
-                      <a class="nav-link" href="index.html">home</a>
+                      <a class="nav-link" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="contactPage.html">contact</a>
+                      <a class="nav-link" href="contactPage.html">Contact</a>
                   </li>
               </ul>
           </div>
@@ -100,10 +80,10 @@
           <div class="d-flex justify-content-end">
               <ul class="navbar-nav">
                   <li class="nav-item">
-                      <a class="nav-link" href="aboutPage.html">about</a>
+                      <a class="nav-link" href="aboutPage.html">About</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="perpScreening.html">am I a perpetrator?</a>
+                      <a class="nav-link" href="perpScreening.html">Am I a perpetrator</a>
                   </li>
               </ul>
           </div>
@@ -123,12 +103,12 @@
    	<hr class="my-4">
    	<form class="" action="https://docs.google.com/forms/d/e/1FAIpQLSdkwmlyJ7doRwwfn9TcXvavl_2ZxTUnWF4qjDRKURQQgEL1vg/formResponse"	method="post" target="hiddenConfirm" onsubmit="submitted = true">
 		<div class="form-group">
-			<label for="entry.5170265" >What’s your preferred name </label><br>
-			<input type="text" name="entry.5170265" placeholder="Type your answer here."class="form-control">
+			<label for="entry.1905940150" >What’s your preferred name </label><br>
+			<textarea name="entry.1905940150" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		
-
 		<hr class="my-4">
+		
 		<div class="form-group">
 			<label class="" for="entry.11757237">Sexual Orientation :</label><br>
 			<input type="radio" name="entry.11757237" value="Straight">
@@ -145,8 +125,8 @@
 			<label for="Queer"> Queer </label><br>
 			<input type="radio" name="entry.11757237" value="Asexual">
 			<label for="Asexual"> Asexual </label><br>
-			<input type="radio" name="entry.11757237" value="Other">
-			<label for="Other"> Other </label><br>
+			<label for="entry.1493115473">Other</label><br>
+			<textarea name="entry.1493115473" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 		<div class="form-group">
@@ -165,8 +145,8 @@
 			<label for="Agender">Agender</label><br>
 			<input type="radio" name="entry.1519699083" value="Transgender">
 			<label for="Transgender">Transgender</label><br>
-			<input type="radio" name="entry.1519699083" value="Other">
-			<label for="Other">Other</label><br>
+			<label for="entry.1750994755">Other</label><br>
+			<textarea name="entry.1750994755" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 		<div class="form-group">
@@ -179,19 +159,18 @@
 			<label for="36-44 Years">36-44 Years</label><br>
 			<input type="radio" name="entry.1805676303" value="44+ Years">
 			<label for="44+ Years">44+ Years</label><br>
-			<input type="radio" name="entry.1805676303" value="Other">
-			<label for="Other">Other</label><br>
+			<label for="entry.265669313">	Other : </label><br>
+			<textarea name="entry.265669313" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 		<div class="form-group">
 			<label for="entry.94674684">What comes to mind when you hear the word IPV?</label><br>
-			<input type="text" name="entry.94674684" placeholder="Type your thoughts."class="form-control">			
+			<textarea name="entry.94674684" placeholder="Type your answer here." class="form-control"></textarea>			
 		</div>
 		<hr class="my-4">
 		<div class="text-center">
         <button type="submit" class="">Submit</button>
     </div>
-		<p class=" text-center"><a href="loginLinktoAgape.html">Go to Love&Rage Official Page</a></p>
 	</form>
 </div>
 </div>
