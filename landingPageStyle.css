@@ -98,7 +98,7 @@ footer {
 .cta-paragraph {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
     margin-right: 30px;
     color: white;
