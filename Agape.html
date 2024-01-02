@@ -9,6 +9,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+  	document.addEventListener('keydown', function (e) {
+    // Check if the pressed key is Enter
+    	if (e.key === 'Enter') {
+      	// Prevent the default form submission behavior
+      	e.preventDefault();
+      	// Optionally, you can add additional logic here if needed
+    	}
+  	});
+	</script>
     <style>
     /* Add custom styles here */
     body {
@@ -53,6 +63,10 @@
       width: 60px; /* Adjust the width as needed */
       height: auto; /* Maintain the aspect ratio */
     }
+	.intro
+	{
+		font-style: italic;
+	}
 	@media only screen and (max-width: 500px) {
     
     .logo {
@@ -110,20 +124,24 @@
     </nav> 
 	
 	<script type="text/javascript">var submitted</script>
-	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='AgapetoErosiceBreaker.html';}"></iframe>
+	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='FinalPage.html';}"></iframe>
 	<div class="container">
 		<div class="row justify-content-center">
     	<div class="col-md-12 form-container">
             <h2 class="text-center fun-heading">Love and Rage</h2>
 	<div class="mb-4">
             <h4>Agape VS Stoic</h4>
-            <p>Agape is often defined as unconditional, sacrificial love. Agape is the kind of love that is felt by a
-                person willing to do anything for another, including sacrificing themselves, without expecting anything
-                in return. In this case, we focus on love for self.</p>
+            <p class="intro">Agape is often defined as unconditional, sacrificial love. Agape is the kind of love that is felt by a person willing to do anything for another, including sacrificing themselves, without expecting anything in return. In this case, we focus on love for self. The rage version of it is <strong>stoic.</strong><br>
+			   Agape signifies a selfless, compassionate love that emphasizes empathy and prioritizes the partner's well-being. For a remorseful perpetrator seeking change, adopting this approach means prioritizing their partner's safety and emotional health over personal desires.
+			   The Stoic approach embodies emotional restraint and suppression, often neglecting the partner's emotional needs. Transforming from stoicism to embracing agape becomes crucial for a remorseful perpetrator, promoting healthier relationships through genuine care and empathy.
+			</p>
 	</div>
 	<div class="mb-4">
-     <h4>Case study</h4><br>
-		<p class="">Sebo is a transgender female who has struggled through the journey of transition. Her family did not support her pursuit of autonomy. She was born to a family of 5, with a father who lives more on the road than at home. The mother is a religious homemaker, who believes the woman’s place is in the kitchen, second to the man. Sebo and the mother’s best moments were spent in the kitchen exploring recipes and gossiping about which of the aunties is having an affair. They were close and she never commented on her mannerism like other people. Her mother would defend her saying she was special. Their relationship took a hit the day Sebo showed up home as her real self. The mother got on her knees and prayed. Asking god for her son back. The home was never the same and her mother could never look at her asking her why she couldn’t wear normal clothes at home and do the girly thing on her own time. Sebo was hurt by this, of all the people she thought the mum would be the most understanding. She chooses to stay at home to fix it with her mum, but she has something hurtful to say every day. Sebo has formed a habit of repeating her mother’s words in the mirror. The pain has become addictive. Sebo’s mother talked her into going to church to choir practice, something they did together often. Driven by the nostalgia Sebo agreed only to discover that it was an exorcism, where she was tossed on the middle of a circle with the church people praying for her. She couldn't shake the image of hatred and disgust in her mother’s eyes, but still, she hoped she could convince the mum. They were close once, they can be close again. She would think. Sebo met someone at the market, who has been supportive and loving. She was the first person to notice how Sebo whispered to herself while biting her nails. Sebo told her what she whispered, her mother’s words. The friend was shocked and asked why she would do that to herself. Sebo believed that if she did it long enough, she would become what the mum wanted and they would be close again. The friend pointed out that the words are erasing her, making her what she isn’t and doing more harm. Sebo had never thought of it that way, which made her realize how unhappy she had been since coming back home. She had not smiled or laughed in a long time. The friend invited Sebo to a meet-up, where people share what they are going through and coping. Sebo has begun to see the self-harm she was instilling in herself when someone in the group shared something similar. She has started intentionally saying affirming words to herself in the mirror and has moved into a communal home with fellow queers. She hopes the mum can see beyond her transition to the child, she knew and loved. The mother still sends bible verses.</p>
+     <h4><strong>Case study :</strong></h4>
+		<p class="">Sebo, a transgender female, faced adversity in her journey of transition, particularly from her unsupportive family. Born into a family of 5, her father's frequent absence and her mother's traditional views strained their relationship.<br> 
+		Despite their close bond in the kitchen, where they explored recipes and shared gossip, everything changed when Sebo revealed her true self. Her mother's prayers and hurtful remarks pushed Sebo into a self-destructive pattern of repeating her mother's words in the mirror.<br>
+		Encountering a supportive friend, Sebo began to realize the harm this inflicted and sought solace in a communal home with fellow queers. Attending a coping support group, she learned to affirm herself positively. While Sebo hopes for her mother's understanding, the distance remains, with her mother sending Bible verses, emphasizing the ongoing struggle for acceptance and self-love.
+		</p>
 	</div>
 	<hr class="my-4">
 	<form class="" action="https://docs.google.com/forms/d/e/1FAIpQLSdhDKhvieLcbNgw45Uj2QDDb_S4a6kUUPvWP1pU_GMIc4eqmg/formResponse" 	method="post" target="hiddenConfirm" onsubmit="submitted = true">
@@ -155,21 +173,21 @@
 		<div class="form-group">
 			<p>Question 3: </p>
 			<label class="" for="entry.1830425315">What advice would you give to Sebo?</label><br>
-			<input type="text" name="entry.1830425315" placeholder="Type your answer here."class="form-control">
+			<textarea name="entry.1830425315" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">		
 
 		<div class="form-group">
 			<p>Question 4: </p>
 			<label class="" for="entry.1974986258">What support do you hope is out there for Sebo?</label><br>
-			<input type="text" name="entry.1974986258" placeholder="Type your answer here."class="form-control">
+			<textarea name="entry.1974986258" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 5: </p>
 			<label class="" for="entry.411153257">What support would you give or recommend to Sebo’s mother?</label><br>
-			<input type="text" name="entry.411153257" placeholder="Type your answer here."class="form-control">
+			<textarea name="entry.411153257" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
@@ -182,11 +200,13 @@
 			<label for="Gifting yourself" class="">Gifting yourself</label><br>
 			<input type="radio" name="entry.958486518" value="Solo dates and hangouts">
 			<label for="Solo dates and hangouts" >Solo dates and hangouts</label><br>
+			<label for="entry.980890974">Other :</label>
+			<textarea name="entry.980890974" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>		
 		<hr class="my-4">
 
 		<div class="form-group">
-			<p>Question 7: </p><br>
+			<p>Question 7: </p>
 			<label for="entry.1386912633" class="">Do you believe it is possible to have self-love?</label><br>
 			<input type="radio" name="entry.1386912633" value="Yes">
 			<label class="" for="Yes">Yes</label><br>
@@ -197,7 +217,7 @@
 
 		<div class="form-group">
 			<p>Question 8: </p>
-			<label class="" for="entry.396927136">Does your level of self-love affect how you channel your rage towards other people and yourself?</label><br>
+			<label class="" for="entry.396927136">If yes, does your level of self-love affect how you channel your rage towards other people and yourself?</label><br>
 			<input type="radio" name="entry.396927136" value="Yes">
 			<label class="" for="Yes">Yes</label><br>
 			<input type="radio" name="entry.396927136" value="No">
@@ -214,6 +234,8 @@
 			<label class="" for="Beating yourself about it">Beating yourself about it</label><br>
 			<input type="radio" name="entry.1483469220" value="Overanalysing it">
 			<label class="" for="Overanalysing it">Overanalysing it</label><br>
+			<label for="entry.1005365427">Other :</label>
+			<textarea name="entry.1005365427" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
@@ -228,18 +250,22 @@
 			<label class="" for="Expressing the rage through words">Expressing the rage through words</label><br>
 			<input type="radio" name="entry.1750972127" value="Denying its existence">
 			<label class="" for="Denying its existence">Denying its existence</label><br>
+			<label for="entry.1240969261">Other :</label>
+			<textarea name="entry.1240969261" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 11: </p>
-			<label class="" for="entry.1658274532">What gaps would you say exist in addressing IPV in the ITGNC (Intersex, transgender and gender non-conforming) community?</label><br>
+			<label class="" for="entry.1658274532">What gaps would you say exist in addressing IPV in the LGBITGNC community?</label><br>
 			<input type="radio" name="entry.1658274532" value="Lack of psychological support">
 			<label class="" for="Lack of psychological support">Lack of psychological support</label><br>
 			<input type="radio" name="entry.1658274532" value="Lack of self-spaces for remorseful perpetrators">
 			<label class="" for="Lack of self-spaces for remorseful perpetrators">Lack of self-spaces for remorseful perpetrators</label><br>
 			<input type="radio" name="entry.1658274532" value="Alienating remorseful perpetrators">
 			<label class="" for="Alienating remorseful perpetrators">Alienating remorseful perpetrators</label><br>
+			<label for="entry.1607539842">Other :</label>
+			<textarea name="entry.1607539842" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
@@ -250,12 +276,14 @@
 			<label class="" for="Yes">Yes</label><br>
 			<input type="radio" name="entry.1844884794" value="No">
 			<label class="" for="No">No</label><br>
+			<label for="entry.2071686230">Other :</label>
+			<textarea name="entry.2071686230" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 13: </p>
-			<label class="" for="entry.827842868">What skills do you hope to gain from this conversation around IPV?</label><br>
+			<label class="" for="entry.827842868">What skills would you hope to gain in an activity centered around perpetration in regards to IPV?</label><br>
 			<input type="radio" name="entry.827842868" value="How to deescalate rage">
 			<label class="" for="How to deescalate rage">How to deescalate rage</label><br>
 			<input type="radio" name="entry.827842868" value="How to channel rage in a healthy way?">
@@ -264,21 +292,18 @@
 			<label class="" for="How to acknowledge rage">How to acknowledge rage</label><br>
 			<input type="radio" name="entry.827842868" value="Understand how to heal as a remorseful perpetrator">
 			<label class="" for="Understand how to heal as a remorseful perpetrator">Understand how to heal as a remorseful perpetrator</label><br>
+			<label for="entry.989400669">Other :</label>
+			<textarea name="entry.989400669" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 		<hr class="my-4">
 
 		<div class="text-center">
 			<button type="submit" class="">Submit</button>
 		</div>
-		<p><a href="FinalPage.html">To be deleted</a></p>
-
-
-	</form>
+		</form>
 	</div>
 </div>
 </div>
 </div>
 </body>
 </html>
-
-

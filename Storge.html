@@ -7,11 +7,22 @@
 </head>
 <body>
 	<script type="text/javascript">var submitted</script>
-	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='End.html';}"></iframe>
+	<iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;" onload="if(submitted){window.location='AgapetoErosiceBreaker.html';}"></iframe>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+  	document.addEventListener('keydown', function (e) {
+    // Check if the pressed key is Enter
+    	if (e.key === 'Enter') {
+      	// Prevent the default form submission behavior
+      	e.preventDefault();
+      	// Optionally, you can add additional logic here if needed
+    	}
+  	});
+	</script>
+
     <style>
     /* Add custom styles here */
     body {
@@ -56,6 +67,10 @@
       width: 60px; /* Adjust the width as needed */
       height: auto; /* Maintain the aspect ratio */
     }
+	.intro
+	{
+		font-style: italic;
+	}
 	@media only screen and (max-width: 500px) {
     
 	body{
@@ -74,6 +89,7 @@
 	.navbar {
 		flex-direction: column;
 	}
+}
   </style>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
       <div class="container-fluid">
@@ -113,26 +129,37 @@
 		<h2 class="text-center fun-heading">Love and Rage</h2>
 		<div class="mt-4"> 
 		<h4>Storge VS Astorgos</h4>
-		<p class="">
-			Storge is familial love.<br>
-			It is the natural love that family members have for one another.<br>
-			It is the type of love that parents feel toward their children and vice versa<br>
+		<p class="intro">
+			Storge is familial love. It is the natural love that family members have for one another. It is the type of love that parents feel toward their children and vice versa. The rage version is <strong>Astorgos.</strong><br>
+			Storge in the context of IPV refers to familial bonds, often strained by violence. Astorgos, within IPV, indicates a deficient or absent natural affection, contributing to challenging relationships.
+
 		</p>
 		</div>
 		<div class="mt-4">
-		<h4 class="">Case study<br></h4>
+		<h4 class=""><strong>Case study</strong><br></h4>
 		<p class="">
-			Stephen and Stanley were born into a family of 5 with a three-year difference between them. They were always competitive with each other as the only cis males of the family. Their father would make them compete against each other for almost everything including chores. Now as adults, they are still at it. They are both engineers as per their father’s advice with Stephen in electrical and Stanley in Software. Stephen is now married to his high school sweetheart and they are expecting a child. Stanley identifies as aromantic asexual, which means he has never had a romantic or sexual relationship and has no desire for one. His father is now pulling him away from people during family gatherings citing all the ways he is behind in the family-rearing business. It is making coming home hard for him especially because he has no desire for what Stephen has. All he sees is Stephen becoming miserable by the day, overwhelmed by debt to keep up with social status. His mother organized a bride for him, who he found home one day when he came home for Christmas festivities. His parents did not listen to him and they insisted on him going with her to Nairobi. Stanley doesn’t want to be disrespectful, but he has reached his wit's end. Stephen was in on it so were their three sisters, who were tasked with looking for the ‘perfect lady’ He feels unheard at home and he is contemplating cutting ties with them. Stephen has also been pushing the agenda by setting him up for dates whenever they meet up. He is tired of explaining himself so he chooses to see a psychiatrist to find out if something is wrong with him. It was then that he discovered that he is on the Asexual spectrum, which is normal. He hopes to be able to explain it to his parents. He has invited them to come for a therapy session with him despite their resistance. He wants to express the effects of the psychological and emotional abuse that being forced into relationships and dates has had on him.<br>
+			Born into a family of five with a three-year age difference, Stephen and Stanley navigated a childhood marked by constant competition, especially as the sole cis males. Their father fueled this rivalry, making them vie for everything, even chores. As adults, both became engineers, following their father's advice—Stephen in electrical engineering and Stanley in software.<br><br>
+
+			Stephen, now married and expecting a child, seems to be conforming to societal expectations, but Stanley identifies as aromantic asexual, with no interest in romantic or sexual relationships. His father, oblivious to Stanley's orientation, isolates him during family gatherings, emphasizing his perceived lag in contributing to the family's reputation.<br><br>
+
+			The situation escalates when Stanley's parents arrange a marriage without considering his feelings. Despite his objections, they insist, leaving Stanley contemplating severing ties. Stephen, aware of the arrangement, supports it, along with their three sisters tasked with finding the 'perfect lady.'<br><br>
+
+			Stanley, weary of explaining himself, seeks psychiatric help and discovers his place on the asexual spectrum. Armed with this understanding, he invites his resistant parents to a therapy session, aiming to elucidate the emotional and psychological toll of forced relationships and dates. In this session, Stanley hopes to bridge the gap, fostering understanding and acceptance within his family.
+
 		</p>
 		</div>
 		<form class="" action="https://docs.google.com/forms/d/e/1FAIpQLSedDc_kIsPU72xn4FoJ4EBernkUOvI4QzfKn0upfn565plm8w/formResponse" method="post" target="hiddenConfirm" onsubmit="submitted = true">
+
+			<hr class="my-4">
 		<div class="form-group">
 			<p>Question 1: </p>
-			<label class="" for="entry.1989746801">Do you think what the parents and brother are doing is abuse?</label><br>
-			<input type="radio" name="entry.1989746801" value="Yes">
+			<label class="" for="entry.1401618604">Do you think what the parents and brother are doing is abuse?</label><br>
+			<input type="radio" name="entry.1401618604" value="Yes">
 			<label for="Yes">Yes</label><br>
-			<input type="radio" name="entry.1989746801" value="No">
+			<input type="radio" name="entry.1401618604" value="No">
 			<label for="No" >No</label><br>
+			<label for="entry.1269523544">Other</label><br>
+			<textarea name="entry.1269523544" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 
 		<hr class="my-4">
@@ -140,73 +167,143 @@
 
 		<div class="form-group">
 			<p>Question 2: </p>
-			<label class="" for="entry.1664830338">What support would you recommend for the parents and brother?</label><br>
-			<input type="text" name="entry.1664830338" placeholder="Type your answer here." class="form-control">
+			<label class="" for="entry.802259286">Do you think what the parents and brother are doing is abuse?</label><br>
+			<textarea name="entry.802259286" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 3: </p>
-			<label class="" for="entry.1024034237">Do you believe that the parents can force Stanley into changing and why?</label><br>
-			<input type="text" name="entry.1024034237" placeholder="Type your answer here." class="form-control">
+			<label class="" for="entry.2074760744">What support would you recommend for the parents and brother?</label><br>
+			<textarea name="entry.2074760744" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
-
+		
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 4: </p>
-			<label class="" for="entry.849367548">How did your family show love to each other?</label><br>
-			<input type="radio" name="entry.849367548" value="Word of affirmation">
-			<label for="Word of affirmation">Word of affirmation</label><br>
-			<input type="radio" name="entry.849367548" value="Act of service">
-			<label for="Act of service" >Act of service</label><br>
-			<input type="radio" name="entry.849367548" value="Gifts">
-			<label for="Gifts" >Gifts</label><br>
-			<input type="radio" name="entry.849367548" value="No love was shown">
-			<label for="No love was shown" >No love was shown</label><br>
+			<label class="" for="entry.999039459">Do you believe that the parents can force Stanley into changing?<br> If yes, why? <br> If no, why?</label><br>
+			<textarea name="entry.999039459" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 5: </p>
-			<label class="" for="entry.163418315">How did your family express frustrations, anger, or rage with each other?</label><br>
-			<input type="radio" name="entry.163418315" value="Angry Words">
-			<label for="Angry Words">Angry Words</label><br>
-			<input type="radio" name="entry.163418315" value="Throwing Things">
-			<label for="Throwing Things">Throwing Things</label><br>
-			<input type="radio" name="entry.163418315" value="Denying Love">
-			<label for="Denying Love">Denying Love</label><br>
-			<input type="radio" name="entry.163418315" value="Silent Treatment">
-			<label for="Silent Treatment">Silent Treatment</label><br>
+			<label class="" for="entry.1848361088">Have you personally experienced or witnessed any form of Intimate Partner Violence (IPV) within your family or close relationships?</label><br>
+			<input type="radio" name="entry.1848361088" value="Yes">
+			<label for="Yes">Yes</label><br>
+			<input type="radio" name="entry.1848361088" value="No">
+			<label for="No" >No</label><br>
+			<input type="radio" name="entry.1848361088" value="Prefer Not to say">
+			<label for="Prefer Not to say" >Prefer Not to say</label><br>
+			<label for="entry.1009198654">Other</label><br>
+			<textarea name="entry.1269523544" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
 
 		<hr class="my-4">
 
 		<div class="form-group">
 			<p>Question 6: </p>
-			<label class="" for="entry.48203108">How did your parents or guardians' conflict style when in rage?</label><br>
-			<input type="radio" name="entry." value="Avoiding (dodge the conflict, ignore)">
-			<label for="Avoiding (dodge the conflict, ignore)">Avoiding (dodge the conflict, ignore)</label><br>
-			<input type="radio" name="entry.48203108" value="Accommodating (understanding you are wrong and keeping the peace by forsaking your own needs for others)">
-			<label for="Accommodating (understanding you are wrong and keeping the peace by forsaking your own needs for others)">Accommodating (understanding you are wrong and keeping the peace by forsaking your own needs for others)</label><br>
-			<input type="radio" name="entry.48203108" value="Compromising (find a solution that will at least partially please all parties)">
-			<label for="Compromising (find a solution that will at least partially please all parties)">Compromising (find a solution that will at least partially please all parties)</label><br>
-			<input type="radio" name="entry.48203108" value="Competing (takes a firm stance and refuses to see the other’s perspective)">
-			<label for="Competing (takes a firm stance and refuses to see the other’s perspective)">Competing (takes a firm stance and refuses to see the other’s perspective)</label><br>
-			<input type="radio" name="entry.48203108" value="Collaborating (all needs of the parties involved are met, win-win situation">
-			<label for="Collaborating (all needs of the parties involved are met, win-win situation">Collaborating (all needs of the parties involved are met, win-win situation</label><br>
+			<label class="" for="entry.959522641">In your opinion, what role does societal pressure play in shaping family expectations and contributing to conflicts like the one described in the case study?</label><br>
+			<input type="radio" name="entry.959522641" value="Significant role">
+			<label for="Significant role">Significant role</label><br>
+			<input type="radio" name="entry.959522641" value="Minor role">
+			<label for="Minor role" >Minor role</label><br>
+			<input type="radio" name="entry.959522641" value="No role">
+			<label for="No role" >No role</label><br>
+			<label for="entry.631342279">Other</label><br>
+			<textarea name="entry.631342279" placeholder="Type your answer here." class="form-control"></textarea>
 		</div>
+
 		<hr class="my-4">
+
+		<div class="form-group">
+			<p>Question 7: </p>
+			<label class="" for="entry.109779539">How did your family show love to each other?</label><br>
+			<input type="radio" name="entry.109779539" value="Word of affirmation">
+			<label for="Word of affirmation">Word of affirmation</label><br>
+			<input type="radio" name="entry.109779539" value="Act of service">
+			<label for="Act of service" >Act of service</label><br>
+			<input type="radio" name="entry.109779539" value="Act of service">
+			<label for="Act of service" >Act of service</label><br>
+			<input type="radio" name="entry.109779539" value="No love was shown">
+			<label for="No love was shown" >No love was shown</label><br>
+			<label for="entry.1800059958">Other</label><br>
+			<textarea name="entry.1800059958" placeholder="Type your answer here." class="form-control"></textarea>
+		</div>
+
+		<hr class="my-4">
+
+		<div class="form-group">
+			<p>Question 8: </p>
+			<label class="" for="entry.1006726325">How did your family express frustrations, anger, or rage with each other?</label><br>
+			<input type="radio" name="entry.1006726325" value="Angry words">
+			<label for="Angry words">Angry words</label><br>
+			<input type="radio" name="entry.1006726325" value="Throwing things">
+			<label for="Throwing things" >Throwing things</label><br>
+			<input type="radio" name="entry.1006726325" value="Denying love">
+			<label for="Denying love" >Denying love</label><br>
+			<label for="entry.2065924361">Other</label><br>
+			<textarea name="entry.2065924361" placeholder="Type your answer here." class="form-control"></textarea>
+		</div>
+
+		<hr class="my-4">
+
+		<div class="form-group">
+			<p>Question 9: </p>
+			<label class="" for="entry.1377961162">How did your parents or guardians' conflict style when in rage?</label><br>
+			<input type="radio" name="entry.1377961162" value="Avoiding(dodge the conflict, ignore)">
+			<label for="Avoiding(dodge the conflict, ignore)">Avoiding(dodge the conflict, ignore)</label><br>
+			<input type="radio" name="entry.1377961162" value="Accommodating(understanding you are wrong and keeping the peace by forsaking your own needs for others)">
+			<label for="Accommodating(understanding you are wrong and keeping the peace by forsaking your own needs for others)" >Accommodating(understanding you are wrong and keeping the peace by forsaking your own needs for others)</label><br>
+			<input type="radio" name="entry.1377961162" value="Compromising(find a solution that will at least partially please all parties)">
+			<label for="Compromising(find a solution that will at least partially please all parties)" >Compromising(find a solution that will at least partially please all parties)</label><br>
+			<input type="radio" name="entry.1377961162" value="Competing(takes a firm stance and refuses to see the other’s perspective)">
+			<label for="Competing(takes a firm stance and refuses to see the other’s perspective)" >Competing(takes a firm stance and refuses to see the other’s perspective)</label><br>
+			<input type="radio" name="entry.1377961162" value="collaborating(all needs of the parties involved are met, win-win situation)">
+			<label for="collaborating(all needs of the parties involved are met, win-win situation)" >collaborating(all needs of the parties involved are met, win-win situation)</label><br>
+			<label for="entry.131630251">Other</label><br>
+			<textarea name="entry.131630251" placeholder="Type your answer here." class="form-control"></textarea>
+		</div>
+
+		<hr class="my-4">
+
+		<div class="form-group">
+			<p>Question 10: </p>
+			<label class="" for="entry.271558127">How do you define and distinguish between healthy familial competition and detrimental rivalry within a family structure?</label><br>
+			<input type="radio" name="entry.271558127" value="Healthy promotes growth and support">
+			<label for="Healthy promotes growth and support">Healthy promotes growth and support</label><br>
+			<input type="radio" name="entry.271558127" value="Detrimental rivalry involves unhealthy comparisons and conflict">
+			<label for="Detrimental rivalry involves unhealthy comparisons and conflict" >Detrimental rivalry involves unhealthy comparisons and conflict</label><br>
+			<input type="radio" name="entry.271558127" value="Both can coexist depending on the context">
+			<label for="Both can coexist depending on the context" >Both can coexist depending on the context</Both can coexist depending on the contextlabel></label><br>
+			<label for="entry.1038186865">Other</label><br>
+			<textarea name="entry.1038186865" placeholder="Type your answer here." class="form-control"></textarea>
+		</div>
+
+		<hr class="my-4">
+
+		<div class="form-group">
+			<p>Question 11: </p>
+			<label class="" for="entry.2020169771">If you or someone you know has faced challenges similar to Stanley's, what coping mechanisms or support systems have proven effective in addressing these issues?</label><br>
+			<input type="radio" name="entry.2020169771" value="Professional therapy">
+			<label for="Professional therapy">Professional therapy</label><br>
+			<input type="radio" name="entry.2020169771" value="Support groups">
+			<label for="Support groups" >Support groups</label><br>
+			<input type="radio" name="entry.2020169771" value="Self-reflection and personal growth">
+			<label for="Self-reflection and personal growth" >Self-reflection and personal growth</label><br>
+			<label for="entry.1670832869">Other</label><br>
+			<textarea name="entry.1670832869" placeholder="Type your answer here." class="form-control"></textarea>
+		</div>
+
 		<div class="text-center">
               <button type="submit" class="">Submit</button>
             </div>
-		<p><a href="AgapetoErosiceBreaker.html">To be Deleted</a></p>
 		</form>
     	</div>
     	</div>
-	</div>
-	
+	</div>	
 </body>
 </html>

@@ -1,234 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #1A261E; /* Set the background color to #1A261E */
-      color: #fff; /* Set text color to white */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #1A261E; /* Set the background color to #1A261E */
+            color: #fff; /* Set text color to white */
+        }
 
-    .container {
-      margin-top: 50px;
-    }
+        .container {
+            margin-top: 50px;
+            text-align: center; /* Center the content in the container */
+        }
 
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px;
-      margin-top: 50px;
-    }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            margin-top: 50px;
+            justify-content: center; /* Center the buttons */
+        }
 
-    .button {
-      font-size: 1.5em;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
+        .button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 8px;
+            color: white;
+        }
 
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 40px;
-      background-color: #fff;
-      color: black;
-      border: 2px solid #333;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      z-index: 1;
-    }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px;
+            background-color: #fff;
+            color: black;
+            border: 2px solid #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
 
-    .popupContent {
-      text-align: center;
-    }
+        .popupContent {
+            text-align: center;
+        }
 
-    .logo {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
 
-    .logo img {
-      width: 60px; /* Adjust the width as needed */
-      height: auto; /* Maintain the aspect ratio */
-    }
+        .logo img {
+            width: 60px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+        }
 
-    .footer.container {
-      text-align: left;
-      padding-top: 50px;
-      font-size: 16px;
-      margin-left: auto;
-      margin-right: auto;
-      
-    }
-    h3{
-      margin-top: 100px;
-      text-align: center;
-    }
-    .next-container {
-  text-align: center; /* Center the text within the container */
-  margin-top: 20px; /* Add some top margin for spacing */
-}
+        .footer.container {
+            text-align: left;
+            padding-top: 50px;
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.next {
-  background-color: transparent;
-  border: 1px solid white;
-  border-radius: 8px;
-  width: 10%;
-  margin: 15px;
-  padding: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  color: rgb(199, 197, 197);
-}
-@media only screen and (max-width: 500px) {
-    
-    .logo {
-        transform: none;
-        left: 35%;
-    }
+        h3 {
+            margin-top: 100px;
+            text-align: center;
+        }
 
-    .logo img {
-        width: 40%;
-    }
+        .next-container {
+            text-align: center; /* Center the text within the container */
+            margin-top: 20px; /* Add some top margin for spacing */
+        }
 
-    nav {
-        text-align: center;
-    }
+        .next {
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 8px;
+            width: 10%;
+            margin: 15px;
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            color: rgb(199, 197, 197);
+        }
 
-    .navbar {
-        flex-direction: column;
-        
-    }
-}
+        @media only screen and (max-width: 500px) {
+            .logo {
+                transform: none;
+                left: 35%;
+            }
 
+            .logo img {
+                width: 40%;
+            }
 
-  </style>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <title>Pick a Smile Game</title>
+            nav {
+                text-align: center;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .button {
+                font-size: 1em; /* Adjust the font size for smaller screens */
+                padding: 8px 15px; /* Adjust the padding for smaller screens */
+            }
+
+            .next {
+                width: 20%; /* Adjust the width for smaller screens */
+                padding: 5px; /* Adjust the padding for smaller screens */
+                font-size: 14px; /* Adjust the font size for smaller screens */
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Pick a Smile Game</title>
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
-      <div class="container-fluid">
-          <!-- Navbar Links on the Left -->
-          <div class="d-flex justify-content-start">
-              <ul class="navbar-nav">
-                  <li class="nav-item">
-                      <a class="nav-link" href="index.html">home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="contactPage.html">contact</a>
-                  </li>
-              </ul>
-          </div>
-  
-          <!-- Centered Logo -->
-          <a class="logo mx-auto" href="index.html">
-              <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo"  class="d-inline-block align-top">
-          </a>
-  
-          <!-- Navbar Links on the Right -->
-          <div class="d-flex justify-content-end">
-              <ul class="navbar-nav">
-                  <li class="nav-item">
-                      <a class="nav-link" href="aboutPage.html">about</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="perpScreening.html">am I a perpetrator?</a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-  <h3>Pick a smile :)</h3>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+            <div class="container-fluid">
+                <!-- Navbar Links on the Left -->
+                <div class="d-flex justify-content-start">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactPage.html">contact</a>
+                        </li>
+                    </ul>
+                </div>
 
-    <!-- "Pick a Smile" Buttons -->
-    <div class="button-container">
-      <!-- Use different smiley face characters as button text -->
-      <button class="button" onclick="openPopup('Toka kwa comfort zone, explore new avenues', '')">😊</button>
-      <button class="button" onclick="openPopup('Fanya moves zenye zitakufanye utake kuwa proud juu yako', '')">😄</button>
-      <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
-      <button class="button" onclick="openPopup('Nourish your body, mind and soul with positive choices today', '')">😄</button>
-      <button class="button" onclick="openPopup('You are on the right track', '')">😊</button>
-      <button class="button" onclick="openPopup('Chill na positive vibes, life itakufavour', '')">😊</button>
-      <button class="button" onclick="openPopup('Kazi kubwa, lakini usife moyo. Endgame ni kubwa zaidi', '')">😄</button>
-      <button class="button" onclick="openPopup('Kuwa juu ya game, si chini. Life ina levels','')">😊</button>
-      <button class="button" onclick="openPopup( 'Embrace the journey','')">😊</button>
-      <button class="button" onclick="openPopup('Your potential is limitless; let it shine today','')">😄</button>
-      <button class="button" onclick="openPopup('Small steps lead to big victories. Keep going', '')">😊</button>
-      <button class="button" onclick="openPopup('Listen to your body; it knows what you need to thrive', '')">😄</button>
-      <button class="button" onclick="openPopup('Celebrate progress, nomatter how small', '')">😊</button>
-      <button class="button" onclick="openPopup('Stay hydrated, get good sleep, and cherish your well-being', '')">😄</button>
-      <button class="button" onclick="openPopup('Mindfulness is a doorway to a life of wellness. Open it daily', '')">😊</button>
-      <button class="button" onclick="openPopup(' Weka form, life ni marathon, si sprint', '')">😄</button>
-      <button class="button" onclick="openPopup('Chunga your mental, zinafanya life iwe smooth', '')">😊</button>
-      <button class="button" onclick="openPopup('Believe in your strength, even if it feels challenging', '')">😄</button>
-      <button class="button" onclick="openPopup('In every setback, find the opportunity to rise stronger.', '')">😊</button>
-      <button class="button" onclick="openPopup('You are not here to be average; you are here to be awesome', '')">😄</button>
-      <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
-      <button class="button" onclick="openPopup('Nourish your body, mind and soul with positive choices today', '')">😄</button>
-      <button class="button" onclick="openPopup('You are on the right track', '')">😊</button>
-      <button class="button" onclick="openPopup('Listen to your body; it knows what you need to thrive', '')">😄</button>
-      <button class="button" onclick="openPopup('Celebrate progress, nomatter how small', '')">😊</button>
-      <button class="button" onclick="openPopup('Stay hydrated, get good sleep, and cherish your well-being', '')">😄</button>
-      <button class="button" onclick="openPopup('Mindfulness is a doorway to a life of wellness. Open it daily', '')">😊</button>
-      <button class="button" onclick="openPopup(' Weka form, life ni marathon, si sprint', '')">😄</button>
-      <button class="button" onclick="openPopup('Chunga your mental, zinafanya life iwe smooth', '')">😊</button>
-      <button class="button" onclick="openPopup('Kazi ikiwa kubwa, divide na conquer, hakuna shida', '')">😄</button>
-      <button class="button" onclick="openPopup('Keep it 100, brathe. Your vibe attracts your tribe', '')">😊</button>
-      <button class="button" onclick="openPopup('Kula life na spoons za positivity', '')">😄</button>
-      <button class="button" onclick="openPopup('Toka kwa comfort zone, explore new avenues', '')">😊</button>
-      <button class="button" onclick="openPopup('Fanya moves zenye zitakufanye utake kuwa proud juu yako', '')">😄</button>
-      <button class="button" onclick="openPopup('Chill na positive vibes, life itakufavour', '')">😊</button>
-      <button class="button" onclick="openPopup('Kazi kubwa, lakini usife moyo. Endgame ni kubwa zaidi', '')">😄</button>
-      <button class="button" onclick="openPopup('Kuwa juu ya game, si chini. Life ina levels','')">😊</button>
-      <button class="button" onclick="openPopup('You are not here to be average; you are here to be awesome', '')">😄</button>
-      <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
-     
+                <!-- Centered Logo -->
+                <a class="logo mx-auto" href="index.html">
+                    <img src="PA_LogosArtboard_24_copy_3-removebg-preview 1.png" alt="Logo" class="d-inline-block align-top">
+                </a>
+
+                <!-- Navbar Links on the Right -->
+                <div class="d-flex justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutPage.html">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="perpScreening.html">am I a perpetrator?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h3>Pick a smile :)</h3>
+
+        <!-- "Pick a Smile" Buttons -->
+        <div class="button-container">
+          <!-- Use different smiley face characters as button text -->
+          <button class="button" onclick="openPopup('Toka kwa comfort zone, explore new avenues', '')">😊</button>
+          <button class="button" onclick="openPopup('Fanya moves zenye zitakufanye utake kuwa proud juu yako', '')">😄</button>
+          <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
+          <button class="button" onclick="openPopup('Nourish your body, mind and soul with positive choices today', '')">😄</button>
+          <button class="button" onclick="openPopup('You are on the right track', '')">😊</button>
+          <button class="button" onclick="openPopup('Chill na positive vibes, life itakufavour', '')">😊</button>
+          <button class="button" onclick="openPopup('Kazi kubwa, lakini usife moyo. Endgame ni kubwa zaidi', '')">😄</button>
+          <button class="button" onclick="openPopup('Kuwa juu ya game, si chini. Life ina levels','')">😊</button>
+          <button class="button" onclick="openPopup( 'Embrace the journey','')">😊</button>
+          <button class="button" onclick="openPopup('Your potential is limitless; let it shine today','')">😄</button>
+          <button class="button" onclick="openPopup('Small steps lead to big victories. Keep going', '')">😊</button>
+          <button class="button" onclick="openPopup('Listen to your body; it knows what you need to thrive', '')">😄</button>
+          <button class="button" onclick="openPopup('Celebrate progress, nomatter how small', '')">😊</button>
+          <button class="button" onclick="openPopup('Stay hydrated, get good sleep, and cherish your well-being', '')">😄</button>
+          <button class="button" onclick="openPopup('Mindfulness is a doorway to a life of wellness. Open it daily', '')">😊</button>
+          <button class="button" onclick="openPopup(' Weka form, life ni marathon, si sprint', '')">😄</button>
+          <button class="button" onclick="openPopup('Chunga your mental, zinafanya life iwe smooth', '')">😊</button>
+          <button class="button" onclick="openPopup('Believe in your strength, even if it feels challenging', '')">😄</button>
+          <button class="button" onclick="openPopup('In every setback, find the opportunity to rise stronger.', '')">😊</button>
+          <button class="button" onclick="openPopup('You are not here to be average; you are here to be awesome', '')">😄</button>
+          <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
+          <button class="button" onclick="openPopup('Nourish your body, mind and soul with positive choices today', '')">😄</button>
+          <button class="button" onclick="openPopup('You are on the right track', '')">😊</button>
+          <button class="button" onclick="openPopup('Listen to your body; it knows what you need to thrive', '')">😄</button>
+          <button class="button" onclick="openPopup('Celebrate progress, nomatter how small', '')">😊</button>
+          <button class="button" onclick="openPopup('Stay hydrated, get good sleep, and cherish your well-being', '')">😄</button>
+          <button class="button" onclick="openPopup('Mindfulness is a doorway to a life of wellness. Open it daily', '')">😊</button>
+          <button class="button" onclick="openPopup(' Weka form, life ni marathon, si sprint', '')">😄</button>
+          <button class="button" onclick="openPopup('Chunga your mental, zinafanya life iwe smooth', '')">😊</button>
+          <button class="button" onclick="openPopup('Kazi ikiwa kubwa, divide na conquer, hakuna shida', '')">😄</button>
+          <button class="button" onclick="openPopup('Keep it 100, brathe. Your vibe attracts your tribe', '')">😊</button>
+          <button class="button" onclick="openPopup('Kula life na spoons za positivity', '')">😄</button>
+          <button class="button" onclick="openPopup('Toka kwa comfort zone, explore new avenues', '')">😊</button>
+          <button class="button" onclick="openPopup('Fanya moves zenye zitakufanye utake kuwa proud juu yako', '')">😄</button>
+          <button class="button" onclick="openPopup('Chill na positive vibes, life itakufavour', '')">😊</button>
+          <button class="button" onclick="openPopup('Kazi kubwa, lakini usife moyo. Endgame ni kubwa zaidi', '')">😄</button>
+          <button class="button" onclick="openPopup('Kuwa juu ya game, si chini. Life ina levels','')">😊</button>
+          <button class="button" onclick="openPopup('You are not here to be average; you are here to be awesome', '')">😄</button>
+          <button class="button" onclick="openPopup('The only limit is the one you set for yourself', '')">😊</button>
+         
+        </div>
+
+        <!-- Popup for "Pick a Smile" -->
+        <div class="popup" id="popup">
+            <span onclick="closePopup()" style="cursor: pointer; float: right;">&times;</span>
+            <div id="popupContent" class="popupContent"></div>
+        </div>
+
+        <script>
+            function openPopup(buttonText, popupContent) {
+                document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
+                document.getElementById('popup').style.display = 'block';
+            }
+
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+        </script>
+
+        <script>
+            function navigateToPhilia() {
+                window.location.href = 'Philia.html';
+            }
+        </script>
+
+        <!-- Place this div around the Next button -->
+        <div class="next-container">
+            <button class="next" onclick="navigateToPhilia()">Next</button>
+        </div>
     </div>
-
-    <!-- Popup for "Pick a Smile" -->
-    <div class="popup" id="popup">
-      <span onclick="closePopup()" style="cursor: pointer; float: right;">&times;</span>
-      <div id="popupContent" class="popupContent"></div>
-    </div>
-
-    <script>
-      function openPopup(buttonText, popupContent) {
-        document.getElementById('popupContent').innerHTML = `<h2>${buttonText}</h2><p>${popupContent}</p>`;
-        document.getElementById('popup').style.display = 'block';
-      }
-
-      function closePopup() {
-        document.getElementById('popup').style.display = 'none';
-      }
-    </script>
-    <script>
-      function navigateToPhilia() {
-        window.location.href = 'Philia.html';
-      }
-    </script>
-
-    <!-- Place this div around the Next button -->
-  <div class="next-container">
-    <button class="next" onclick="navigateToPhilia()">Next</button>
-  </div>
-  </div>
 </body>
 </html>
