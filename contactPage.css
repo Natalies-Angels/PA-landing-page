@@ -89,6 +89,9 @@ i
         padding-right: 10px;
         padding-bottom: 10px;
     }
+    body{
+        font-size: 12px;
+    }
     .logo {
         transform: none;
         left: 35%;
