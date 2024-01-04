@@ -203,7 +203,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
     body {
         margin: 0;
         padding: 0;
@@ -215,7 +215,7 @@ footer {
 
     .logo {
         transform: none;
-        left: 40%;
+        left: 35%;
     }
 
     .logo img {
