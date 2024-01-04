@@ -49,7 +49,7 @@ footer {
     }
     .logo {
         transform: none;
-        left: 35%;
+        left: 43%;
     }
 
     .logo img {
@@ -57,7 +57,7 @@ footer {
     }
 
     nav {
-        text-align: center;
+        text-align: left;
     }
 
     .navbar {
